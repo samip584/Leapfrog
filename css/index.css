@@ -1,0 +1,48 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding-top: 20px;
+    font-family: Open sans;
+    text-align: center;
+}
+
+
+h1{
+    margin: 0px;
+    font-size: 40px;
+    padding: 0;
+    margin-top: -15px;
+}
+
+h2{ 
+    margin: 0px;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 0;
+    color: #403d43;
+}
+
+
+
+.content-table{
+    border-collapse: collapse ;
+    margin: 25px 0;
+    min-width: 700px;
+    margin: 40px    auto;
+}
+.content-table thead tr{
+    background-color: #009879;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th, .content-table th{
+    padding: 12px 15px;
+}
+
+.content-table tbody tr{
+    border-bottom: 1px solid #dddddd;
+
+}
