@@ -1,0 +1,323 @@
+
+a{
+  text-decoration: none;
+  color: #292929;
+}
+
+.nav-container-left{
+  height:49px;
+  width : 82.72921108742004%;
+  background-color:#7dd9e8;
+  float: left;
+  padding-top: 20px;
+  padding-bottom: 16px;
+}
+
+.logo{
+  width :223px;
+  float: left;
+}
+
+.search-container{
+  float: left;
+  height: 20px;
+  width: 336px;
+  padding-left: 24px;
+  background-color:#7dd9e8;
+  padding-top: 20px;
+}
+
+.searchBox{
+  background-image: url('../images/searchBar.png');
+  float: left;
+  width: 276px;
+  height: 21px;
+  margin-right: 7px;
+}
+
+.searchTerm {
+  float: left;
+  margin-top: 4px;
+  margin-left: 8.5px;
+  width: 230px;
+  border: 0px;
+  font-size: 10px;
+  color: #869497;
+  background-color:transparent;
+  outline: none;
+}
+
+.SButton {
+  width: 53px;
+  height: 20px;
+  background-image: url('../images/search_button.png');
+  border: 0px;
+  float: right;
+}
+
+.nav-container-right{
+  margin-top: 25px;
+  float: right;
+  width: 140px;
+}
+
+.accountMenu{
+  float: right;
+  width :auto;
+  font-size: 10.5px;
+  color: #323232;
+  font-weight: 600;
+}
+
+.username{
+  float: right;
+  font-size: 15px;
+  padding-bottom: 5px;
+  color: #323232;
+  font-weight:600;
+}
+
+.accountMenu li{
+  display: inline;
+}
+
+.menu-container-left{
+  float: left;
+  padding-top: 7px;
+}
+
+
+.menu-container-left li{
+  font-size: 13px;
+  margin-right: 26px;
+  display: inline;
+  font-weight: bolder;
+}
+.menu-container-left li a{
+  color: #6a6a6a;
+}
+
+.menu-container-right{
+  float: right;
+  padding-top: 8px;
+}
+
+.menu-invites{
+  width: 140px;
+  border: none;
+  background-image: url('../images/inviteActive.png');
+}
+
+.menu-request{
+  margin-left: 30px;
+  width: 130px;
+  border: none;
+  color: #969696;
+  background-image: url('../images/requestInActive.png');
+}
+
+.menutext{
+  float: right;
+  font-size: 11.3px;
+}
+
+.menuvalue{
+  float: right;
+  font-size: 11.3px;
+  padding-left: 4px;
+}
+
+.Searches-container{
+  float: left;
+  width : 194px;
+  height: 100%;
+  background-color: #f5f5f5;
+}
+
+.box-header{
+  height: 15px;
+  padding-top: 10px;
+  padding-bottom: 17px;
+  padding-left: 12px;
+  background-color: #2fc1da;
+  color: #fffffd;
+  font-size: 16px;
+}
+
+.box-content{
+  padding-top: 9px;
+  padding-bottom: 14px;
+  padding-left: 11px;
+  padding-right: 14px;
+  height: 11px;
+}
+.box-content:hover {
+  background-color: #ffffff;
+}
+
+.box-content-left{
+  float: left;
+  font-size: 11px;
+}
+
+.twoline{
+  height: 24px;
+}
+
+.download-icon{
+  float: right;
+}
+.download-icon-twoline{
+  float: right;
+  padding-top:8px;
+}
+.burger-icon{
+  float: right;
+  padding-top: 4px;
+}
+.burger-icon-twoline{
+  float: right;
+  padding-top:12px;
+}
+
+
+.Entities-container{
+  margin-left: 26px;
+  margin-top: -11px;
+  width : 518px;
+  height: 100%;
+  
+  float: left;
+}
+
+.entries-header{
+  display: inline-block;
+  width: 100%;
+  height: 67px;
+  background-image: url('../images/head-back.png');
+}
+.entries-header-top{
+  font-size: 13px;
+  padding-top: 10px;
+  width: 100%;
+  height:27px;
+}
+.left_header{
+  float: left;
+  padding-left: 99px;
+}
+.right_header{
+  float: right;
+  padding-right: 97px;
+}
+.entries-header-bottom{
+  height: 28px;
+  width: 100%;
+}
+.left_header_bottom{
+  float: left;
+  width: 258px;
+}
+.right_header_bottom{
+  float: right;
+  width: 258px;
+}
+.head-option{
+  float: left;
+  padding-top: 7px;
+  height: 21px;
+  width: 114px;
+  margin-left: 10px;
+  font-size: 11px;
+  text-align: center;
+  background-image: url("../images/tabInActive.png");
+}
+.head-option:hover{
+  color: #ffffff;
+  background-image: url("../images/tabActive.png");
+}
+
+
+.tab-active{
+  color: #ffffff;
+  background-image: url("../images/tabActive.png");
+}
+
+.entries-header-bottom{
+  height: 28px;
+}
+.entry-pannel{
+  border-bottom: 1px solid #d8d8d8;
+  padding: 15px 0;
+  height: 70px;
+}
+
+.entry-pic{
+  float: left;
+  height: 70px;
+  width: 70px;
+}
+
+.entry-text-container{
+  float: right;
+  width: 438px;
+  font-family: "Arial";
+  font-weight: bold;
+}
+
+.subtext{
+  margin-top: 5px;
+  color: #616161;
+  font-size: 11px;
+}
+.author{
+  color: #4faec0;
+  padding-right: 3px;
+}
+
+.subs{
+  color: #72951f;
+  padding-left: 3px;
+  
+}
+.topic{
+  color: #51aec0;
+  padding-right: 3px;
+}
+.blue-info{
+  color: #51aec0;
+  padding-right: 3px;
+}
+.red-info{
+  color: #d33f19;
+  padding-right: 3px;
+}
+
+
+.Tutorial-container{
+  margin-left: 24px;
+  width : 176px;
+  height: 100%;
+  float: left;
+  background-color: #f5f5f5;
+}
+
+
+.contact-info{
+  float: left;
+}
+.contact-info li{
+  margin-right: 7px;
+  display: inline;
+  font-weight: bolder;
+}
+.contact-info li a{
+  color: #d4d4d4;
+  font-size: 10px;
+}
+.contact-info img {
+  margin-right: 7px;
+}
+.copyright{
+  float: right;
+}

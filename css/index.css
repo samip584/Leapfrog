@@ -26,10 +26,12 @@ h2{
 
 
 .content-table{
+    border-radius: 15px;
     border-collapse: collapse ;
     margin: 25px 0;
     min-width: 700px;
-    margin: 40px    auto;
+    margin: 40px auto;
+    border-bottom: 5px solid #009879;
 }
 .content-table thead tr{
     background-color: #009879;
@@ -45,4 +47,8 @@ h2{
 .content-table tbody tr{
     border-bottom: 1px solid #dddddd;
 
+}
+
+.gray-bg{
+background-color: #f2f2f2;
 }
