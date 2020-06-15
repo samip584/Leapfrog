@@ -57,7 +57,7 @@ body
 
 .footer-container{
   width: 938px;
-  padding-top: 15px;
+  padding: 15px 32px;
   padding-bottom : 17px;
   font-size: 10px;
   color: #d4d4d4;
