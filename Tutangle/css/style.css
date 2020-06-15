@@ -53,8 +53,11 @@ a{
   background-image: url('../images/search_button.png');
   border: 0px;
   float: right;
+  cursor: pointer;
 }
-
+.SButton:hover{
+  background-image: url('../images/search_button_hover.png');
+}
 .nav-container-right{
   margin-top: 22px;
   float: right;
@@ -75,6 +78,7 @@ a{
   padding-bottom: 5px;
   color: #323232;
   font-weight:600;
+  cursor: pointer;
 }
 
 .accountMenu li{
@@ -237,10 +241,11 @@ a{
   font-size: 11px;
   text-align: center;
   background-image: url("../images/tabInActive.png");
+  cursor: pointer;
 }
 .head-option:hover{
   color: #ffffff;
-  background-image: url("../images/tabActive.png");
+  background-image: url("../images/tabhover.png");
 }
 
 
