@@ -82,7 +82,7 @@ a{
 }
 
 .accountMenu li{
-  display: inline;
+  display: inline-block;
 }
 
 .menu-container-left{
@@ -94,7 +94,7 @@ a{
 .menu-container-left li{
   font-size: 13px;
   margin-right: 26px;
-  display: inline;
+  display: inline-block;
   font-weight: bolder;
 }
 .menu-container-left li a{
@@ -324,7 +324,7 @@ a{
 }
 .contact-info li{
   margin-right: 7px;
-  display: inline;
+  display: inline-block;
   font-weight: bolder;
 }
 .contact-info li a{
