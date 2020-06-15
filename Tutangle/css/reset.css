@@ -3,17 +3,19 @@
   padding :0px;  
 }
 h1{
+  font-family: Open Sans;
   margin: 0 0;
   padding: 0 0;
-  font-weight: 200;
+  font-weight: 400;
   font-size: 30px;
+  
 }
 
 h2{
   margin: 0 0;
   padding: 0 0;
-  font-family: "Arial";
-  font-size: 14px;
+  font-family: "Open Sans";
+  font-size: 13.7px;
   font-weight: 600;
 }
 
