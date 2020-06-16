@@ -1,0 +1,132 @@
+body
+{
+    height: 100%;
+    width :100%;
+    background-color:#ffffff;
+    font-family: "Open Sans";
+    font-weight: bold;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav-wrapper{
+  height:85px;
+  width : 100%;
+  background-color:#7dd9e8;
+}
+
+.nav-container {
+  width :calc(100% - 60px);   
+  padding: 0 30px;
+  background-color:#7dd9e8;
+}
+
+.menu-wrapper{
+  height:40px;
+  width : 100%;
+  background-color:#f5f5f5;
+}
+
+.menu-container { 
+  width :calc(100% - 70px);       
+  padding-right: 30px;
+  padding-left: 40px;
+  background-color:#f5f5f5;
+  padding-bottom: 10px;
+}
+.content-wrapper { 
+  width :calc(100% - 60px);    
+  padding: 30px 30px;
+}
+
+.clearfix:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.footer-wrapper{
+  height: 45px;
+  width: 100%;
+  background-color: #727272;
+  clear: both;
+}
+
+.footer-container{
+  width: calc(100% - 60px);
+  padding: 15px 32px;
+  padding-bottom : 18px;
+  font-size: 10px;
+  color: #d4d4d4;
+  background-color: #727272;
+}
+@media only screen and (min-width: 992px){
+  body
+  {
+    height: 100%;
+    width :100%;
+    background-color:#ffffff;
+    font-family: "Open Sans";
+    font-weight: bold;
+  }
+
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .nav-wrapper{
+    height:85px;
+    width : 100%;
+    background-color:#7dd9e8;
+  }
+
+  .nav-container {
+    width :938px;   
+    padding: 0 32px;
+    background-color:#7dd9e8;
+  }
+
+  .menu-wrapper{
+    height:40px;
+    width : 100%;
+    background-color:#f5f5f5;
+  }
+
+  .menu-container { 
+    width :931px;   
+    padding-right: 32px;
+    padding-left: 41px;
+    background-color:#f5f5f5;
+    padding-bottom: 10px;
+  }
+  .content-wrapper {
+    height:605px;   
+    width :938px;    
+    padding: 30px 33px;
+  }
+  .clearfix:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+
+  .footer-wrapper{
+    height: 45px;
+    width: 100%;
+    background-color: #727272;
+    clear: both;
+  }
+
+  .footer-container{
+    width: 938px;
+    padding: 15px 32px;
+    padding-bottom : 18px;
+    font-size: 10px;
+    color: #d4d4d4;
+    background-color: #727272;
+  }
+}

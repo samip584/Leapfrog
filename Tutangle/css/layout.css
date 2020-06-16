@@ -42,6 +42,7 @@ body
   width :938px;    
   padding: 30px 33px;
 }
+
 .clearfix:after {
   clear: both;
   content: '';
