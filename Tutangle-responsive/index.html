@@ -37,11 +37,11 @@
           </ul>
         </div>
       </div>
-      <button class = "nav-menu-burger"><img src = "images/navburger.png" alt = "menu button"></button>
+      <button class = "nav-menu-burger" onclick="myFunction()"><img src = "images/navburger.png" alt = "menu button"></button>
     </div>
   </div>
 
-  <div class = "mobile-menu">
+  <div id = "mobile-menu">
     <div class = "menu-top clearfix">
       <a class = "username">Joe Burros</a>
       
@@ -274,5 +274,19 @@
       <div class="copyright">© TuTangle 2013</div>
     </div>
   </div>
+  <script>
+    var is_menu = false;
+    function myFunction() {
+      if (is_menu){
+        document.getElementById("mobile-menu").style.display = "none";
+        is_menu = false;  
+      }
+      else{
+        document.getElementById("mobile-menu").style.display = "block";
+        is_menu = true;
+      }
+      
+    }
+  </script>
 </body>
 </html>
