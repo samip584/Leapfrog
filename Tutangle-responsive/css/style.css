@@ -13,8 +13,12 @@ a{
 }
 
 .logo{
-  width :223px;
   float: left;
+}
+
+.logoimg{
+    max-width: 223px;
+    width : 100%;
 }
 
 .search-container{
