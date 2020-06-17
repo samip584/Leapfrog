@@ -228,7 +228,6 @@ a{
 .entry-pannel{
   border-bottom: 1px solid #d8d8d8;
   padding: 15px 0;
-  height: 70px;
 }
 
 .entry-pic{
@@ -309,6 +308,7 @@ a{
   position: absolute;
   background-color:  white;
   text-align: center;
+  z-index: 1;
 }
 
 .menu-top{
