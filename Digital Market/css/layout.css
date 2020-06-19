@@ -16,7 +16,12 @@ body
   left: 0;
   right: 0;
 }
-
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
 .clearfix:after {
   clear: both;
   content: '';
@@ -26,6 +31,8 @@ body
 .head_wrapper{
   width: 100% ;
   background-image: url(../images/header-bg.png);
+  background-position: center;
+  padding-bottom: 35px;
 }
 
 .search-wrapper{
@@ -41,11 +48,34 @@ body
 .pricing-plan-wrapper{
   background-color: #f1f5f8;
   padding: 0 15px;
+  padding-bottom: 60px;
 }
+.join-us-wrapper{
+  background-image: url(../images/signup-base.png);
+  padding: 0 15px;
+}
+.testimonial-wrapper{
+  background-color: #f1f5f8;
+  padding: 0 15px;
+}
+.mockup-wrapper{
+  padding: 0 15px;
+}
+.top-footer-wrapper{
+  padding: 0 15px;
+  background-color: #21272c;
+  border-bottom: 1px solid rgba(255, 255, 255  , 0.1);
+}
+.bottom-footer-wrapper{
+  padding: 0 15px;
+  background-color: #21272c;
+}
+
 
 @media only screen and (min-width: 1200px){
   .head_wrapper{
     height: 625px;
+    padding-bottom: 0;
   }
   .search-wrapper{
     padding: 0 0;
@@ -57,5 +87,21 @@ body
   }
   .pricing-plan-wrapper{
     padding: 0 0;
+    padding-bottom: 100px;
+  }
+  .join-us-wrapper{
+    padding: 0 0;
+  }
+  .testimonial-wrapper{
+    padding: 0 0;
+  }
+  .mockup-wrapper{
+    padding: 0 0;
+  }
+  .top-footer-wrapper{
+    padding: 0 0px;
+  }
+  .bottom-footer-wrapper{
+    padding: 0 0px;
   }
 }
