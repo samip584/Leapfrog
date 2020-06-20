@@ -71,6 +71,24 @@ body
   background-color: #21272c;
 }
 
+@media only screen and (min-width: 768px){
+  .head_wrapper{
+    height: 550px;
+    padding-bottom: 0;
+  }
+  .search-wrapper{
+    margin-top: -60px;
+  }
+  .products-list-wrapper{
+    margin-top: -95px;
+  }
+  .pricing-plan-wrapper{
+    padding-bottom: 100px;
+  }
+  .join-us-wrapper{
+    padding: 0 0;
+  }
+}
 
 @media only screen and (min-width: 1200px){
   .head_wrapper{
@@ -80,6 +98,7 @@ body
   .search-wrapper{
     padding: 0 0;
     margin-top: -38px;
+    height: auto;
   }
   .products-list-wrapper{
     padding: 0 0;
