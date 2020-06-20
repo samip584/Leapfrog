@@ -1030,6 +1030,7 @@
   
   .header-button{
     height: auto;
+    font-size: 18px;
     padding: 19px 27px;
     width: auto;
     margin-top: 0px;
@@ -1040,6 +1041,7 @@
   }
   #search-method{
     text-align: center;
+    text-align-last: center;
     color: #949494;
     display: block;
     float: left;
