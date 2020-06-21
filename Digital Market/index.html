@@ -12,13 +12,13 @@
 <body>
   <div class = "nav center clearfix center-absolute">
     <div class = "nav-left clearfix"> 
-      <button class = "burger-menu"><img class = "burger-img"src="images/burger-menu.png" alt="burger-menu"></button>
+      <button class = "burger-menu" onclick="openMenu()"><img class = "burger-img" src="images/burger-menu.png" alt="burger-menu"></button>
       <a class = "logo" href="#"><img src="images/logo.png" alt="logo"></a>
       <div class = "logo-text">Digital Market</div>
     </div>
     <div class = "nav-right clearfix">
       <ul class = "nav-right-left">
-        <li><a href="#"> Home</a></li>
+        <li><a href="#"> Home</a></li> 
         <li><a href="#">All Items</a></li>
         <li><a href="#">Freebies</a></li>
         <li><a href="#">Premium</a></li>
@@ -26,12 +26,26 @@
       </ul>
       <div class = "nav-right-mid clearfix">
         <a class = "menu-search" href="#"><img src="images/search-icon.png" alt="search logo"></a>
-        <a class = "menu-cart" href="#"><img src="images/cart-icon.png" alt="cart logo"></a>
+        <a class = "menu-cart" href="#">
+          <img class="mobile-cart" src="images/cart-icon-blue.png" alt="cart logo">
+          <img class="cart" src="images/cart-icon.png" alt="cart logo">
+        </a>
         <div class="cart-count">0</div>
       </div>
       <button class="nav-login">LOGIN</button>
     </div>
   </div>
+
+  <div id = "mob-menu">
+    <ul>
+      <li><a href="#"> Home</a></li> 
+      <li><a href="#">All Items</a></li>
+      <li><a href="#">Freebies</a></li>
+      <li><a href="#">Premium</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+  </div>
+
   <div class ="head_wrapper">
     <div class = "main-header-container center">
       <div class = "title-holder center">
@@ -44,6 +58,7 @@
       </div>
     </div>
   </div>
+
   <div class = "search-wrapper">
     <form class = "search-container center clearfix" action="#" method="get">
       <select name="search_method" id="search-method"><option value="0">Entire Site</option></select>
@@ -67,8 +82,17 @@
   <div class = "products-list-wrapper">
     <div class = "products-list-container center clearfix">
       <div class = "product">
-        <a href = "#"></a>
-          <img class = "product-img" src="images/image1.png" alt="image1">
+        <a href = "#">
+          <div class = "product-img-container">
+            <img class = "product-img" src="images/image1.png" alt="image1">
+            <div class = "hover-menu">
+              <img class = "post-stats" src="images/Post Stats.png" alt="posts">
+              <div class = "mid-buttons">
+                <img class = "eye-img" src="images/eye.png" alt="eye">
+                <img class = "cart-button" src="images/cart-button.png" alt="cart">
+              </div>
+            </div>
+          </div>
             <div class ="product-description">
               <h4>Collector iOS Wireframe UI Kit</h4>
               <p>Super clean, minimalistic, stylized mockup collection with awesome customization features and huge resolution</p>
@@ -82,8 +106,17 @@
       </div>
 
       <div class = "product  extra-margin">
-        <a href = "#"></a>
-          <img class = "product-img" src="images/image2.png" alt="image2">
+        <a href = "#">
+          <div class = "product-img-container">
+            <img class = "product-img" src="images/image2.png" alt="image2">
+            <div class = "hover-menu">
+              <img class = "post-stats" src="images/Post Stats.png" alt="posts">
+              <div class = "mid-buttons">
+                <img class = "eye-img" src="images/eye.png" alt="eye">
+                <img class = "cart-button" src="images/cart-button.png" alt="cart">
+              </div>
+            </div>
+          </div>
             <div class ="product-description">
               <h4>Water Bottle Mockup</h4>
               <p>Super clean, minimalistic, stylized mockup collection with awesome customization features and huge resolution</p>
@@ -92,13 +125,22 @@
         <div class ="provider-description clearfix">
           <img class= "provider-pic" src="images/photo.png" alt="provider photo">
           <div class = "by-in-product">by <a href="#">Sirapa Manandhar</a></div>
-          <div class = "product-price">$60.00</div>
+          <div class = "product-free">Free</div>
         </div>
       </div>
 
       <div class = "product">
-        <a href = "#"></a>
-          <img class = "product-img" src="images/image3.png" alt="image3">
+        <a href = "#">
+          <div class = "product-img-container">
+            <img class = "product-img" src="images/image3.png" alt="image3">
+            <div class = "hover-menu">
+              <img class = "post-stats" src="images/Post Stats.png" alt="posts">
+              <div class = "mid-buttons">
+                <img class = "eye-img" src="images/eye.png" alt="eye">
+                <img class = "cart-button" src="images/cart-button.png" alt="cart">
+              </div>
+            </div>
+          </div>
             <div class ="product-description">
               <h4>T-Shirt MockUp PSD</h4>
               <p>Super clean, minimalistic, stylized mockup collection with awesome customization features and huge resolution</p>
@@ -112,12 +154,22 @@
       </div>
 
       <div class = "product">
-        <a href = "#"></a>
-          <img class = "product-img" src="images/image4.png" alt="image4">
+        <a href = "#">
+          <div class = "product-img-container">
+            <img class = "product-img" src="images/image4.png" alt="image4">
+            <div class = "hover-menu">
+              <img class = "post-stats" src="images/Post Stats.png" alt="posts">
+              <div class = "mid-buttons">
+                <img class = "eye-img" src="images/eye.png" alt="eye">
+                <img class = "cart-button" src="images/cart-button.png" alt="cart">
+              </div>
+            </div>
+          </div>
             <div class ="product-description">
               <h4>Van MockUp PSD – 6 Angles</h4>
               <p>Super clean, minimalistic, stylized mockup collection with awesome customization features and huge resolution</p>
             </div>
+            
         </a>
         <div class ="provider-description clearfix">
           <img class= "provider-pic" src="images/photo.png" alt="provider photo">
@@ -127,8 +179,17 @@
       </div>
 
       <div class = "product  extra-margin">
-        <a href = "#"></a>
-          <img class = "product-img" src="images/image5.png" alt="image5">
+        <a href = "#">
+          <div class = "product-img-container">
+            <img class = "product-img" src="images/image5.png" alt="image5">
+            <div class = "hover-menu">
+              <img class = "post-stats" src="images/Post Stats.png" alt="posts">
+              <div class = "mid-buttons">
+                <img class = "eye-img" src="images/eye.png" alt="eye">
+                <img class = "cart-button" src="images/cart-button.png" alt="cart">
+              </div>
+            </div>
+          </div>
             <div class ="product-description">
               <h4>Water Bottle Mockup</h4>
               <p>Super clean, minimalistic, stylized mockup collection with awesome customization features and huge resolution</p>
@@ -142,8 +203,17 @@
       </div>
 
       <div class = "product">
-        <a href = "#"></a>
-          <img class = "product-img" src="images/image6.png" alt="image6">
+        <a href = "#">
+          <div class = "product-img-container">
+            <img class = "product-img" src="images/image6.png" alt="image6">
+            <div class = "hover-menu">
+              <img class = "post-stats" src="images/Post Stats.png" alt="posts">
+              <div class = "mid-buttons">
+                <img class = "eye-img" src="images/eye.png" alt="eye">
+                <img class = "cart-button" src="images/cart-button.png" alt="cart">
+              </div>
+            </div>
+          </div>
             <div class ="product-description">
               <h4>Epsilon Powerpoint Template – Free Sample</h4>
               <p>Super clean, minimalistic, stylized mockup collection with awesome customization features and huge resolution</p>
@@ -157,8 +227,17 @@
       </div>
 
       <div class = "product">
-        <a href = "#"></a>
-          <img class = "product-img" src="images/image7.png" alt="image7">
+        <a href = "#">
+          <div class = "product-img-container">
+            <img class = "product-img" src="images/image7.png" alt="image7">
+            <div class = "hover-menu">
+              <img class = "post-stats" src="images/Post Stats.png" alt="posts">
+              <div class = "mid-buttons">
+                <img class = "eye-img" src="images/eye.png" alt="eye">
+                <img class = "cart-button" src="images/cart-button.png" alt="cart">
+              </div>
+            </div>
+          </div>
             <div class ="product-description">
               <h4>Plastic Pouch Packaging MockUp</h4>
               <p>Super clean, minimalistic, stylized mockup collection with awesome customization features and huge resolution</p>
@@ -172,8 +251,17 @@
       </div>
 
       <div class = "product  extra-margin">
-        <a href = "#"></a>
-          <img class = "product-img" src="images/image8.png" alt="image8">
+        <a href = "#">
+          <div class = "product-img-container">
+            <img class = "product-img" src="images/image8.png" alt="image8">
+            <div class = "hover-menu">
+              <img class = "post-stats" src="images/Post Stats.png" alt="posts">
+              <div class = "mid-buttons">
+                <img class = "eye-img" src="images/eye.png" alt="eye">
+                <img class = "cart-button" src="images/cart-button.png" alt="cart">
+              </div>
+            </div>
+          </div>
             <div class ="product-description">
               <h4>Phoenix Startup UI Kit – Free Sample</h4>
               <p>Super clean, minimalistic, stylized mockup collection with awesome customization features and huge resolution</p>
@@ -187,8 +275,17 @@
       </div>
 
       <div class = "product">
-        <a href = "#"></a>
-          <img class = "product-img" src="images/image9.png" alt="image9">
+        <a href = "#">
+          <div class = "product-img-container">
+            <img class = "product-img" src="images/image9.png" alt="image9">
+            <div class = "hover-menu">
+              <img class = "post-stats" src="images/Post Stats.png" alt="posts">
+              <div class = "mid-buttons">
+                <img class = "eye-img" src="images/eye.png" alt="eye">
+                <img class = "cart-button" src="images/cart-button.png" alt="cart">
+              </div>
+            </div>
+          </div>
             <div class ="product-description">
               <h4>71 Free Animal Icons</h4>
               <p>Super clean, minimalistic, stylized mockup collection with awesome customization features and huge resolution</p>
@@ -200,6 +297,20 @@
           <div class = "product-price">$60.00</div>
         </div>
       </div>
+    </div>
+    <div class = "pagination center">
+      <ul>
+        <li class = "page-text"><a href="#">❮ Prev</a></li>
+        <li class = "page-num"><a href="#">1</a></li>
+        <li class = "page-num active"><a href="#">2</a></li>
+        <li class = "page-num"><a href="#">3</a></li>
+        <li class = "page-num"><a href="#">‧‧‧</a></li>
+        <li class = "page-num"><a href="#">7</a></li>
+        <li class = "page-text"><a href="#">Next ❯</a></li>
+      </ul>
+    </div>
+    <div class = "mob-loadmore center">
+      <a href="">Load more</a>
     </div>
   </div>
 
@@ -346,45 +457,44 @@
   </div>
   
   <div class = "top-footer-wrapper">
-      <div class = "top-footer-container center clearfix">
-        <div class = "footer-div">
-          <div class = "footer-title">Digital</div>
-          <div class="footer-para">
-            We're passionate about creating free and premium resources for professional community.
+    <div class = "top-footer-container center clearfix">
+      <div class = "footer-div">
+        <div class = "footer-title">Digital</div>
+        <div class="footer-para">
+          We're passionate about creating free and premium resources for professional community.
 
-            <br><br>Any questions? Email to info@digital.net
-          </div>
+          <br><br>Any questions? Email to info@digital.net
         </div>
-        <div class = "footer-div right">
-          <div class = "footer-title">Quick Links</div>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
+      </div>
+      <div class = "footer-div right">
+        <div class = "footer-title">Quick Links</div>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class = "footer-div">
+        <div class = "footer-title">Recent Posts</div>
+        <div class="Recent">
+          <div class = "post-title">Tutorial: Isometric Actions and Icons in Illustrator</div>
+          <div class = "post-date">12 Jan 2018</div>
         </div>
-        <div class = "footer-div">
-          <div class = "footer-title">Recent Posts</div>
-          <div class="Recent">
-            <div class = "post-title">Tutorial: Isometric Actions and Icons in Illustrator</div>
-            <div class = "post-date">12 Jan 2018</div>
-          </div>
-          <div class="Recent">
-            <div class = "post-title">Where All Our Freebies Come From: True Story</div>
-            <div class = "post-date">12 Jan 2017</div>
-          </div>
+        <div class="Recent">
+          <div class = "post-title">Where All Our Freebies Come From: True Story</div>
+          <div class = "post-date">12 Jan 2017</div>
         </div>
-        <div class = "footer-div right">
-          <div class = "footer-title">Subscribe to our Newsletter</div>
-          Sign up for our newsletter to receive the new releases directly to your inbox.
-          <div class="footer-para">
-            <form class = "join-container-footer clearfix" action="#" method="get">
-              <input type="text" class="join-email-footer" placeholder="Enter your email...">
-              <button type="Button" class="signup-button-footer">Sign Up</button>
-            </form>
-          </div>
+      </div>
+      <div class = "footer-div right">
+        <div class = "footer-title">Subscribe to our Newsletter</div>
+        Sign up for our newsletter to receive the new releases directly to your inbox.
+        <div class="footer-para">
+          <form class = "join-container-footer clearfix" action="#" method="get">
+            <input type="text" class="join-email-footer" placeholder="Enter your email...">
+            <button type="Button" class="signup-button-footer">Sign Up</button>
+          </form>
         </div>
       </div>
     </div>
@@ -401,5 +511,19 @@
       </div>
     </div>
   </div>
+  <script>
+    var is_menu = false;
+    function openMenu() {
+      if (is_menu){
+        document.getElementById("mob-menu").style.display = "none";
+        is_menu = false;  
+      }
+      else{
+        document.getElementById("mob-menu").style.display = "block";
+        is_menu = true;
+      }
+      
+    }
+  </script>
 </body>
 </html>
