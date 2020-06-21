@@ -677,7 +677,6 @@
     margin-top: 20px;
   }
   .main-header-buttons-container{
-    width: 280px;
     margin-top: 29px;
     margin-left: calc(47% - 140px);
   }
@@ -687,8 +686,8 @@
     margin-left: 0;
   }
   .head-button-pricing{
-    float: right;
-    margin-left: 0;
+    margin-left: 11px;
+    float: left;
   }
   
   .header-button{
