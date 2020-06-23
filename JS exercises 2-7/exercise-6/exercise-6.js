@@ -10,11 +10,23 @@ var arr = [{
 }];
 
 function sortBy(array, key) {
-    for (var element in arr){
-        if (obj[fruit][key].toUpperCase() == req_name.toUpperCase()){
-            return (obj[fruit]);
+    var tempArray = array.slice();
+    console.log(tempArray)
+    for (var i = 0; i < tempArray.length; i++) 
+    {
+        var smallest = i;
+        for (var j = i; j < tempArray.length; j++) {
+            if (arr[j][key] < arr[smallest][key]) smallest = j;
         }
-      }
-}
-
+        if (smallest !== i) {
+            var temp = tempArray[smallest];
+            tempArray[smallest] = tempArray[i];
+            tempArray[i] = temp;
+        }
+    }
+  
+    return tempArray;
+  }
+ 
 var sorted = sortBy(arr, 'name');
+console.log(arr, sorted);
