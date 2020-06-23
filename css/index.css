@@ -41,6 +41,7 @@ h2{
 }
 
 .content-table th, .content-table th{
+    text-align: left;
     padding: 12px 15px;
 }
 
