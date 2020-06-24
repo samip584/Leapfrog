@@ -22,7 +22,7 @@ var i = 0;
 var start;
 var up = true;
 var progress = 0;
-function step(timestamp){
+function step(){
     if (up)
     {
         progress = progress + 5;
@@ -41,4 +41,4 @@ function step(timestamp){
     window.requestAnimationFrame(step);
 }
 
-window.requestAnimationFrame(step)
+window.requestAnimationFrame(step);
