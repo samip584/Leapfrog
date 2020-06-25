@@ -34,6 +34,7 @@ function carousel(){
     console.log("ok")
     self.goLeft()
   });
+  
   this.leftButtonImg = document.createElement('img');
   this.leftButtonImg.src = 'images/left.svg';
   this.leftButtonImg.style.width = '50%';
