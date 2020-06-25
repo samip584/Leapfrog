@@ -68,7 +68,6 @@ function carousel(){
   this.rightButton.appendChild(this.rightButtonImg);
 
 
-
   for (i=0; i<this.images.length; i++){
     this.images[i].style.width = this.container.clientWidth+'px';
     this.images[i].style.float = 'left';
@@ -79,9 +78,17 @@ function carousel(){
   this.paginationContainer.style.bottom = 0;
   this.paginationContainer.style.height = '7%';
   this.container.appendChild(this.paginationContainer);
-  
 
-  for (var i=0; i<this.images.length; i++){
+  this.createBulletHover = function(paginationbutton){
+    paginationbutton.addEventListener("mouseover", function(){
+      self.pageigationHover(paginationbutton);
+    });
+    paginationbutton.addEventListener("mouseout", function(){
+      self.notPageigationHover(paginationbutton);
+    });
+  }
+
+  this.createBullet= function(page){
     this.paginationbutton = document.createElement('div');
     this.paginationbutton.style.float = 'left';
     this.paginationbutton.style.borderRadius = '50%';
@@ -90,16 +97,17 @@ function carousel(){
     this.paginationbutton.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
     this.paginationbutton.style.margin = '2px';
     this.paginationbutton.addEventListener('click', function(){
-      self.goTo(i);
-    });
-    this.paginationbutton.addEventListener("mouseover", function(){
-      self.pageigationHover(self.paginationbutton);
-    });
-    this.paginationbutton.addEventListener("mouseout", function(){
-      self.notPageigationHover(self.paginationbutton);
+      self.goTo(page);
     });
     this.paginationContainer.appendChild(this.paginationbutton);
+    this.createBulletHover(self.paginationbutton)
   }
+  
+  for (var i=0; i<this.images.length; i++){
+    this.createBullet(i);
+  }
+  
+  
   
   this.paginationContainer.style.left = 'calc(50% - '+(this.paginationContainer.clientWidth / 2)+'px)';
 
@@ -120,9 +128,10 @@ function carousel(){
   }
 
   this.goTo = function(page){
+    self.oldPosition = self.position;
     self.position = -page * self.container.clientWidth;
     console.log(self.position)
-    self.wrapper.style.left = self.position+'px';
+    self.changeAnimation();
   }
 
 
@@ -148,9 +157,9 @@ function carousel(){
     
     self.velocity = self.container.clientWidth/20;
     if (Math.abs(self.oldPosition - self.position)>self.container.clientWidth)
-      self.velocity = self.velocity*3;
-    function move(timestamp){
-      console.log(self.velocity)
+      self.velocity = self.velocity * self.images.length;
+
+    function move(){
       if (Math.abs(self.oldPosition - self.position)<self.velocity){
         self.wrapper.style.left = self.position+'px';
         self.oldPosition = self.position;
@@ -160,6 +169,7 @@ function carousel(){
       else
         self.oldPosition = self.oldPosition + self.velocity;
       self.wrapper.style.left = self.oldPosition+'px';
+      
       if (self.oldPosition != self.position)
         window.requestAnimationFrame(move);
       
