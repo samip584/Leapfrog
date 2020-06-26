@@ -164,6 +164,9 @@ function carousel(){
     var buttons = self.paginationContainer.getElementsByTagName('div');
     console.log(buttons, index);
     buttons[index].style.backgroundColor = 'rgb(255, 255, 255)';
+    buttons[index].addEventListener("mouseout", function(){
+      self.pageigationHover(buttons[index]);
+    });
     buttons[oldIndex].style.backgroundColor = 'rgb(255, 255, 255, 0.6)';
   }
   
