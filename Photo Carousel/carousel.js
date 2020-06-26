@@ -107,15 +107,17 @@ function carousel(){
     this.createBullet(i);
   }
   
-  
+
   
   this.paginationContainer.style.left = 'calc(50% - '+(this.paginationContainer.clientWidth / 2)+'px)';
 
+  
 
   this.goRight = function(){
     self.oldPosition = self.position;
     self.position = (self.position - self.container.clientWidth)%self.wrapper.clientWidth;
     self.changeAnimation();
+    self.activate();
   }
 
   this.goLeft = function(){
@@ -125,6 +127,7 @@ function carousel(){
       self.position = -(self.wrapper.clientWidth - self.container.clientWidth);
     }
     self.changeAnimation();
+    self.activate();
   }
 
   this.goTo = function(page){
@@ -132,6 +135,7 @@ function carousel(){
     self.position = -page * self.container.clientWidth;
     console.log(self.position)
     self.changeAnimation();
+    self.activate();
   }
 
 
@@ -153,6 +157,16 @@ function carousel(){
     paginationbutton.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
   }
 
+  this.activate = function()
+  {
+    var index = Math.abs((self.position/self.wrapper.clientWidth)*self.images.length);
+    var oldIndex = -((self.oldPosition/self.wrapper.clientWidth)*self.images.length);
+    var buttons = self.paginationContainer.getElementsByTagName('div');
+    console.log(buttons, index);
+    buttons[index].style.backgroundColor = 'rgb(255, 255, 255)';
+    buttons[oldIndex].style.backgroundColor = 'rgb(255, 255, 255, 0.6)';
+  }
+  
   this.changeAnimation = function(){
     
     self.velocity = self.container.clientWidth/20;
