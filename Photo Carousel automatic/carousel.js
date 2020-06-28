@@ -181,15 +181,16 @@ function carousel(container){
   this.activate = function()
   {
     var index = Math.abs((self.position/self.wrapper.clientWidth)*self.images.length);
-    var oldIndex = -((self.oldPosition/self.wrapper.clientWidth)*self.images.length);
+    var oldIndex = Math.abs((self.oldPosition/self.wrapper.clientWidth)*self.images.length);
     var buttons = self.paginationContainer.getElementsByTagName('div');
+    console.log(buttons[index], buttons[oldIndex])
     buttons[index].style.backgroundColor = 'rgb(255, 255, 255)';
     buttons[index].addEventListener("mouseout", function(){
-      self.pageigationHover(buttons[index]);
+      buttons[index].style.backgroundColor = 'rgb(255, 255, 255)';
     });
     buttons[oldIndex].style.backgroundColor = 'rgb(255, 255, 255, 0.6)';
     buttons[oldIndex].addEventListener("mouseout", function(){
-      self.notpageigationHover(buttons[oldIndex]);
+      buttons[oldIndex].style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
     });
   }
   
