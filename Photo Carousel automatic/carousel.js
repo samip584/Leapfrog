@@ -1,14 +1,8 @@
 function carousel(container){
   let self = this;
-  this.position = 0;
-  this.oldPosition = 0;
-  
   this.container = container;
   this.wrapper = this.container.querySelector(".carousel-image-wrapper");
   this.images = this.wrapper.getElementsByTagName("img");
-  this.velocity = this.container.clientWidth/(this.animationTime * 60);
-  this.holdTick = 0;
-  this.animationTick = 0;
   this.holdTime = parseFloat(this.container.getAttribute("holdTime"))
   if (!this.holdTime){
     this.holdTime = 2;
@@ -18,9 +12,17 @@ function carousel(container){
     this.animationTime = 0.5;
   }
 
-  this.container.style.overflow ="hidden";
-  this.container.style.position ="relative";
+  this.position = 0;
+  this.oldPosition = 0;
+  this.velocity = this.container.clientWidth/(this.animationTime * 60);
+  this.holdTick = 0;
+  this.animationTick = 0;
   
+
+  this.configureContainer = function(){
+    this.container.style.overflow ="hidden";
+    this.container.style.position ="relative";
+  }
   this.configureWrapper = function(){
     this.wrapper.style.width = this.container.clientWidth * this.images.length +'px';
     this.wrapper.style.height = 100+'%';
@@ -131,6 +133,7 @@ function carousel(container){
   window.requestAnimationFrame(this.hold);
 
   this.goRight = function(){
+    self.holdTick = 0;
     self.oldPosition = self.position;
     self.position = (self.position - self.container.clientWidth)%self.wrapper.clientWidth;
     self.changeAnimation();
@@ -138,6 +141,7 @@ function carousel(container){
   }
 
   this.goLeft = function(){
+    self.holdTick = 0;
     self.oldPosition = self.position;
     self.position = self.position + self.container.clientWidth;
     if (self.position > 0){
@@ -148,6 +152,7 @@ function carousel(container){
   }
 
   this.goTo = function(page){
+    self.holdTick = 0;
     self.oldPosition = self.position;
     self.position = -page * self.container.clientWidth;
     self.changeAnimation();
@@ -214,6 +219,7 @@ function carousel(container){
     window.cancelAnimationFrame(self);
   }
 
+  this.configureContainer()
   this.configureWrapper()
   this.addNavigationButtons()
   this.configureImages()
