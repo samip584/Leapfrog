@@ -1,11 +1,11 @@
 class Ball{
   constructor(container, color){ 
     this.container = container;
-    this.radius = Math.floor(Math.random() * 20) + 20;
+    this.radius = Math.floor(Math.random() * 30) + 20;
     this.x = Math.floor(Math.random() * (1000 - (2 * this.radius)));
     this.y = Math.floor(Math.random() * (600 - (2 * this.radius)));
-    this.dy = Math.floor(Math.random() * 10)+1;
-    this.dx = Math.floor(Math.random() * 10)+1;
+    this.dy = Math.floor(Math.random() * 5)+1;
+    this.dx = Math.floor(Math.random() * 5)+1;
     this.color = color;
     this.ball = document.createElement('div');
   }
@@ -34,11 +34,15 @@ class Ball{
     if (this.y < 0){
       this.dy = Math.abs(this.dy);
     }
-    
   }
+
   setDirection(dxNew, dyNew){
     this.dx = dxNew;
     this.dy = dyNew;
+  }
+  increasepositon(){
+    this.x += 1;
+    this.y += 1;
   }
   get direction(){
     return [this.dx, this.dy];
@@ -76,19 +80,21 @@ function handleBallCollision(){
   for (i = 0; i < ballNo; i++){
     for (j = i; j < ballNo; j++){
       if (i !== j){
-        if(detectCollision(balls[i].position, balls[j].position)){
+        if(detectCollision(balls[i].position, balls[j].position))
+        {
           let tempI = balls[i].direction;
           let tempJ = balls[j].direction;
           balls[i].setDirection(tempJ[0], tempJ[1]);
           balls[j].setDirection(tempI[0], tempI[1]);
+          
         }
       }
     }
   }
 }
 
-function detectCollision(circle1, circle2){
 
+function detectCollision(circle1, circle2){
   let dx = circle1.x - circle2.x;
   let dy = circle1.y - circle2.y;
   let distance = Math.sqrt(dx * dx + dy * dy);
@@ -100,7 +106,16 @@ function detectCollision(circle1, circle2){
 }
 
 for (i = 0; i < ballNo; i++){ 
-  var ball =  new Ball(box, genrateColor());
+  overlap = false;
+  do{
+    overlap = false;
+    var ball =  new Ball(box, genrateColor());
+    for (let j = 0; j < i; j++)
+      if (detectCollision(ball, balls[j])){
+        overlap = true;
+        break;  
+      }
+  }while(overlap)
   ball.draw();
   balls.push(ball);
 }
