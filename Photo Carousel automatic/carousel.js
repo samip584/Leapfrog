@@ -92,8 +92,7 @@ function carousel(container){
   this.addPagination = function(){
     this.paginationContainer = document.createElement('div');
     this.paginationContainer.style.position = "absolute";
-    this.paginationContainer.style.bottom = 0;
-    this.paginationContainer.style.height = '7%';
+    this.paginationContainer.style.bottom = '2%';
     this.container.appendChild(this.paginationContainer);
   }
 
@@ -183,7 +182,6 @@ function carousel(container){
     var index = Math.abs((self.position/self.wrapper.clientWidth)*self.images.length);
     var oldIndex = Math.abs((self.oldPosition/self.wrapper.clientWidth)*self.images.length);
     var buttons = self.paginationContainer.getElementsByTagName('div');
-    console.log(buttons[index], buttons[oldIndex])
     buttons[index].style.backgroundColor = 'rgb(255, 255, 255)';
     buttons[index].addEventListener("mouseout", function(){
       buttons[index].style.backgroundColor = 'rgb(255, 255, 255)';
@@ -212,7 +210,7 @@ function carousel(container){
         self.oldPosition = self.oldPosition + self.velocity;
       self.wrapper.style.left = self.oldPosition+'px';
       
-      if (self.oldPosition != self.position)
+      if (self.oldPosition !== self.position)
         window.requestAnimationFrame(move);
       
     }
@@ -244,3 +242,4 @@ function makeCarosel(containers) {
 
 makeCarosel(containers);
 
+window.onresize = function(){makeCarosel(containers);}
