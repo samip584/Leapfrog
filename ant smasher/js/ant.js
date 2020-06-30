@@ -136,9 +136,13 @@ for (i = 0; i < antNo; i++){
 }
 function addListener(ant){
   ant.antDiv.addEventListener('click', function(){
-    ant.antDiv.remove();
+    ant.antDiv.style.backgroundImage = 'url(images/splat.png)';
     ants = ants.filter(item => item !== ant);
     antNo -= 1;
+    setTimeout(function(){
+      ant.antDiv.remove();
+    }, 500)
+    
   });
 }
 
