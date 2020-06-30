@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Lane</title>
+</head>
+<body>
+  <div class = 'container'>
+    <canvas id ='canvas'  width="450" height="650"></canvas>
+    <div id = 'overlay'>
+      <div class = 'score-board'></div>
+      <div class = 'energy'>
+        <div class ="charge"></div>
+      </div>
+      <div class = "try-again">
+        <img class = "you-crashed" src="images/crashed.png">
+        <div class = 'high-score'></div>
+        <img class = "try-again-button" src="images/try-again.png">
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/canvas.js"></script>
+  <script src="js/playerCar.js" ></script>
+  <script src="js/car.js" ></script>
+  <script src="js/bullet.js" ></script>
+  <script src="js/game.js" ></script>
+</body>
+</html>
