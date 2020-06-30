@@ -1,7 +1,7 @@
 class Ball{
   constructor(container, color){ 
     this.container = container;
-    this.radius = Math.floor(Math.random() * 3) + 1;
+    this.radius = Math.floor(Math.random() * 20) + 30;
     this.x = Math.floor(Math.random() * (1000 - (2 * this.radius)));
     this.y = Math.floor(Math.random() * (600 - (2 * this.radius)));
     this.dy = Math.floor(Math.random() * 5)+1;
@@ -67,7 +67,7 @@ var box = document.querySelector(".box");
 // ball.draw();
 // ball.move();
 var balls = []
-var ballNo = 1000 ;
+var ballNo = 10 ;
 
 function genrateColor(){
   color = '#';
