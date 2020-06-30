@@ -1,7 +1,7 @@
 class Ball{
   constructor(container, color){ 
     this.container = container;
-    this.radius = Math.floor(Math.random() * 30) + 20;
+    this.radius = Math.floor(Math.random() * 3) + 1;
     this.x = Math.floor(Math.random() * (1000 - (2 * this.radius)));
     this.y = Math.floor(Math.random() * (600 - (2 * this.radius)));
     this.dy = Math.floor(Math.random() * 5)+1;
@@ -67,7 +67,7 @@ var box = document.querySelector(".box");
 // ball.draw();
 // ball.move();
 var balls = []
-var ballNo = 10 ;
+var ballNo = 1000 ;
 
 function genrateColor(){
   color = '#';
@@ -100,7 +100,6 @@ function detectCollision(circle1, circle2){
   let distance = Math.sqrt(dx * dx + dy * dy);
 
   if (distance < circle1.radius + circle2.radius) {
-      console.log("collision detected!")
       return(true)
   }
 }
