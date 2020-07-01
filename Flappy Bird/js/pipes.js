@@ -44,7 +44,7 @@ class Pipes{
   }
   
   addPipes(){
-    if(game.state = 1){
+    if(game.state == 1){
       this.position.push({x: this.x, y: this.y = this.maxYpos * (Math.random() + 1)});
     }
   }

@@ -12,7 +12,6 @@ class Game{
   
   update(){
     if(game.state <2){
-      
       this.checkGroundCollision();
       this.tick += 1;
       this.background.update(this.context);
