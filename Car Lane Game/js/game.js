@@ -125,7 +125,7 @@ tryAgainButton.addEventListener('click', function(){
   game.traffic = [];
   game.userCar.resetPosition();
   game._stopGame = false;
-  game.this.spawnTime = 150;
+  game.spawnTime = 150;
   tryAgainScreen.style.display = 'none';
 })
 
