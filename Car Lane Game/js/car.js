@@ -21,7 +21,7 @@ class Traffic{
     }
   }
   get position(){
-    return {x: this.lane * 90 + 100, y: this.yPosition}
+    return {x: this.lane * 90 + 100, y: this.yPosition, width: 70, height: 150}
   }
   increaseSpeed(){
     this.speed += 1;

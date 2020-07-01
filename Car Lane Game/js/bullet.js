@@ -1,7 +1,7 @@
 class Bullet{
   constructor(){
     this.xPosition;
-    this.speed = 10;
+    this.speed = 15;
     this.bullet = new Image;
     this.bullet.src = './images/bullet.png'
     this.yPosition = 450;
@@ -12,6 +12,7 @@ class Bullet{
     ctx.drawImage(this.bullet, this.xPosition, this.yPosition, 20, 34);
     this.yPosition -= this.speed;
     this.tick += 1;
+    charge.style.width = ((this.tick/120)*100) + '%';
     if(this.tick > 120){
       this.yPosition = 450;
       this.tick = 0;

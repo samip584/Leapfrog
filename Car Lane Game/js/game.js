@@ -13,6 +13,10 @@ class Game{
     this.traffic = [];
     this.tick = 0;
     this._stopGame = false;
+
+    this.bullet = new Bullet;
+    this.bulletFire = false;
+    this.blown = null;
   }
 
   
@@ -29,14 +33,23 @@ class Game{
       this.traffic.forEach(function(car){
         car.update(context)
       })
-      if(collision(this.userCar, this.traffic)){
+
+      if(collision(this.userCar, this.traffic).detected){
         this._stopGame = true;
         let tryAgainScreen = document.querySelector('.try-again');
         tryAgainScreen.style.display = 'block';
         let highScoreBoard = document.querySelector('.high-score');
         highScoreBoard.innerHTML = 'SCORE : ' + score;
         scoreBoard.style.display = 'none';
+        energybar.style.display = 'none';
       }
+      let bulletCollision = collision(this.bullet, this.traffic)
+      if(bulletCollision.detected){
+        this.blown = bulletCollision.car
+        this.traffic = this.traffic.filter(item => item !== bulletCollision.car);
+        this.bullet.yPosition = -150;
+      }
+
       this.tick += 1;
       if (this.tick > 600){
         this.tick = 0;
@@ -44,6 +57,10 @@ class Game{
         this.traffic.forEach(function(car){
           car.increaseSpeed()
         })
+      }
+
+      if(this.bulletFire){
+        this.bullet.update(this.context);
       }
 
       this.userCar.update(this.context)
@@ -65,6 +82,8 @@ let game = new Game(context)
 
 
 var scoreBoard = document.querySelector('.score-board');
+let energybar = document.querySelector('.energy');
+var charge = document.querySelector('.charge');
 var score = 0;
 
 
@@ -74,6 +93,7 @@ tryAgainButton.addEventListener('click', function(){
   score = 0;
   scoreBoard.innerHTML = 'Score : ' + score;
   scoreBoard.style.display = 'block';
+  energybar.style.display = 'block';
   game.traffic = [];
   game.userCar.resetPosition();
   game._stopGame = false;
@@ -83,19 +103,29 @@ tryAgainButton.addEventListener('click', function(){
 })
 
 
-function collision(player, traffic){
+function collision(object, traffic){
   for(i = 0; i <traffic.length; i++){
-    if (player.position < traffic[i].position.x + 70 &&
-      player.position + 70 > traffic[i].position.x &&
-      450 < traffic[i].position.y + 150 &&
-      450 + 150 > traffic[i].position.y) {
-        return(true);
+    if (object.position.x < traffic[i].position.x + traffic[i].position.width &&
+      object.position.x + object.position.width > traffic[i].position.x &&
+      object.position.y < traffic[i].position.y + traffic[i].position.height &&
+      object.position.y + object.position.height > traffic[i].position.y) {
+        return{detected : true, car: traffic[i]};
     }
   }
-  return(false)
+  return{detected : false}
 }
 
-
+function readyToFire(){
+  game.bulletFire = false;
+}
+function addBlown(){
+  if(game.blown){
+    game.blown.yPosition = -150;
+    game.blown.lane = Math.round(Math.random() * 2);
+    game.traffic.push(game.blown);
+    game.blown = null;
+  }
+}
 
 
 document.addEventListener('keydown', function(key){
@@ -107,7 +137,12 @@ document.addEventListener('keydown', function(key){
     case 39: //right arrow key
       game.userCar.userCarRight();
       break;
-    
+    case 32: //right arrow key
+      if(!game.bulletFire) {
+        game.bulletFire = true;
+        game.bullet.xPosition = game.userCar.carPosition + 20;
+      }
+      break;
 
   }
 })
@@ -118,7 +153,6 @@ function addTraffic(){
     clearInterval(secondRow);
   }, 2300);
 }
-
 
 scoreBoard.innerHTML = 'Score : ' + score;
 addTraffic();
