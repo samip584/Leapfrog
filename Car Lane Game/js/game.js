@@ -14,7 +14,7 @@ class Game{
     this.trafficSpeed = 3;
     this.tick = 0;
     this._stopGame = false;
-    this.spawnTime = 2500;
+    this.spawnTime = 2000;
 
     this.bullet = new Bullet;
     this.bulletFire = false;
@@ -58,8 +58,9 @@ class Game{
      
       let bulletCollision = collision(this.bullet, this.traffic)
       if(bulletCollision.detected){
-        this.blown = bulletCollision.car
-        this.traffic = this.traffic.filter(item => item !== bulletCollision.car);
+        bulletCollision.cars.forEach(function(car){
+          game.traffic = game.traffic.filter(item => item !== car);
+        });
         this.bullet.yPosition = -150;
       }
 
@@ -69,7 +70,6 @@ class Game{
         this.speed += .25;
         this.trafficSpeed += .25;
         this.spawnTime -= 200;
-        console.log(this.spawnTime)
         this.traffic.forEach(function(car){
           car.increaseSpeed()
         })
@@ -83,12 +83,10 @@ class Game{
     }
   }
   populateTraffic(){
-    console.log('ok')
     var trafficCar = new Traffic(this.trafficSpeed);
     this.traffic.push(trafficCar)
     trafficCar = new Traffic(this.trafficSpeed);
     this.traffic.push(trafficCar)
-    console.log(this.trafficSpeed)
   }
   
 }
@@ -125,15 +123,17 @@ tryAgainButton.addEventListener('click', function(){
 
 
 function collision(object, traffic){
+  let collided ={detected : false, cars: []} 
   for(i = 0; i <traffic.length; i++){
     if (object.position.x < traffic[i].position.x + traffic[i].position.width &&
       object.position.x + object.position.width > traffic[i].position.x &&
       object.position.y < traffic[i].position.y + traffic[i].position.height &&
       object.position.y + object.position.height > traffic[i].position.y) {
-        return{detected : true, car: traffic[i]};
+        collided.detected = true;
+        collided.cars.push(traffic[i]);
     }
   }
-  return{detected : false}
+  return collided
 }
 
 function readyToFire(){
