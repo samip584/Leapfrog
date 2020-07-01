@@ -14,7 +14,7 @@ class Bullet{
     this.tick += 1;
     charge.style.width = ((this.tick/120)*100) + '%';
     if(this.tick > 120){
-      this.yPosition = 450;
+      this.yPosition = 850;
       this.tick = 0;
       readyToFire();
     }

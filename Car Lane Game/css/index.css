@@ -53,3 +53,16 @@
   height: 100%;
   border-radius: 5px;
 }
+.home-screen{
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  background-image: url(../images/homeScreen.png);
+  background-size: 450px 650px;
+}
+.play-button{
+  position: absolute;
+  bottom : 50px;
+  left : calc(50% - 52px);
+}

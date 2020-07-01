@@ -11,12 +11,15 @@ class Game{
     this.userCar = new PlayerCar()
 
     this.traffic = [];
+    this.trafficSpeed = 3;
     this.tick = 0;
     this._stopGame = false;
+    this.spawnTime = 2500;
 
     this.bullet = new Bullet;
     this.bulletFire = false;
-    this.blown = null;
+    
+    setInterval(() => this.populateTraffic(), this.spawnTime);
   }
 
   
@@ -32,6 +35,14 @@ class Game{
       this.yOffset += this.speed;
       this.traffic.forEach(function(car){
         car.update(context)
+        if (car.yPosition > 650){
+          car.yPosition  = -150;
+          car.carNo = Math.round(Math.random() * (car.opponenetCarImgs.length -1));
+          car.lane = Math.round(Math.random() * 2);
+          score += 1;
+          scoreBoard.innerHTML = 'Score : ' + score;
+          removeCar(car)
+        }
       })
 
       if(collision(this.userCar, this.traffic).detected){
@@ -43,6 +54,8 @@ class Game{
         scoreBoard.style.display = 'none';
         energybar.style.display = 'none';
       }
+
+     
       let bulletCollision = collision(this.bullet, this.traffic)
       if(bulletCollision.detected){
         this.blown = bulletCollision.car
@@ -53,7 +66,10 @@ class Game{
       this.tick += 1;
       if (this.tick > 600){
         this.tick = 0;
-        this.speed += 1;
+        this.speed += .25;
+        this.trafficSpeed += .25;
+        this.spawnTime -= 200;
+        console.log(this.spawnTime)
         this.traffic.forEach(function(car){
           car.increaseSpeed()
         })
@@ -67,11 +83,14 @@ class Game{
     }
   }
   populateTraffic(){
-    var trafficCar = new Traffic();
+    console.log('ok')
+    var trafficCar = new Traffic(this.trafficSpeed);
     this.traffic.push(trafficCar)
-    trafficCar = new Traffic();
+    trafficCar = new Traffic(this.trafficSpeed);
     this.traffic.push(trafficCar)
+    console.log(this.trafficSpeed)
   }
+  
 }
 
 
@@ -80,14 +99,18 @@ let context = canvas.getContext('2d');
 
 let game = new Game(context)
 
-
+let tryAgainScreen = document.querySelector('.try-again');
 var scoreBoard = document.querySelector('.score-board');
 let energybar = document.querySelector('.energy');
 var charge = document.querySelector('.charge');
 var score = 0;
+let homeScreen = document.querySelector('.home-screen');
+let playButton = document.querySelector('.play-button');
 
-
-
+playButton.addEventListener('click', function(){
+  homeScreen.style.display = 'none';
+  requestAnimationFrame(gameLoop);
+})
 tryAgainButton = document.querySelector('.try-again-button');
 tryAgainButton.addEventListener('click', function(){
   score = 0;
@@ -97,8 +120,6 @@ tryAgainButton.addEventListener('click', function(){
   game.traffic = [];
   game.userCar.resetPosition();
   game._stopGame = false;
-  addTraffic()
-  let tryAgainScreen = document.querySelector('.try-again');
   tryAgainScreen.style.display = 'none';
 })
 
@@ -126,10 +147,11 @@ function addBlown(){
     game.blown = null;
   }
 }
-
+function removeCar(car){
+  game.traffic = game.traffic.filter(item => item !== car);
+}
 
 document.addEventListener('keydown', function(key){
-  console.log(key.keyCode)
   switch(key.keyCode){
     case 37: // left arrow key
       game.userCar.userCarLeft();
@@ -140,25 +162,19 @@ document.addEventListener('keydown', function(key){
     case 32: //right arrow key
       if(!game.bulletFire) {
         game.bulletFire = true;
+        game.bullet.yPosition = 450;
         game.bullet.xPosition = game.userCar.carPosition + 20;
       }
       break;
 
   }
 })
-function addTraffic(){ 
-  game.populateTraffic();
-  secondRow = setInterval(function(){
-    game.populateTraffic();
-    clearInterval(secondRow);
-  }, 2300);
-}
+
+
+
 
 scoreBoard.innerHTML = 'Score : ' + score;
-addTraffic();
-
 function gameLoop(){
   game.update();
   requestAnimationFrame(gameLoop);
 }
-requestAnimationFrame(gameLoop);
