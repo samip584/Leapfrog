@@ -12,8 +12,8 @@ class Bullet{
     ctx.drawImage(this.bullet, this.xPosition, this.yPosition, 20, 34);
     this.yPosition -= this.speed;
     this.tick += 1;
-    charge.style.width = ((this.tick/120)*100) + '%';
-    if(this.tick > 120){
+    charge.style.width = ((this.tick/200)*100) + '%';
+    if(this.tick > 200){
       this.yPosition = 850;
       this.tick = 0;
       readyToFire();

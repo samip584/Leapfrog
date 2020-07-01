@@ -14,12 +14,12 @@ class Game{
     this.trafficSpeed = 3;
     this.tick = 0;
     this._stopGame = false;
-    this.spawnTime = 2000;
-
+    this.spawnTime = 150;
+    
+    this.tickForSpawn = 0;
     this.bullet = new Bullet;
     this.bulletFire = false;
-    
-    setInterval(() => this.populateTraffic(), this.spawnTime);
+  
   }
 
   
@@ -64,15 +64,22 @@ class Game{
         this.bullet.yPosition = -150;
       }
 
+
+      this.tickForSpawn += 1;
       this.tick += 1;
       if (this.tick > 600){
         this.tick = 0;
         this.speed += .25;
         this.trafficSpeed += .25;
-        this.spawnTime -= 200;
+        if(this.spawnTime> 50)
+          this.spawnTime -= 10;
         this.traffic.forEach(function(car){
           car.increaseSpeed()
         })
+      }
+      if (this.tickForSpawn > this.spawnTime ){
+        this.tickForSpawn = 0;
+        this.populateTraffic()
       }
 
       if(this.bulletFire){
