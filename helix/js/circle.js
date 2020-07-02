@@ -1,8 +1,7 @@
 class Circle{
   constructor(index, color, x, column){
-    this.radius = GROWTH_SIZE * index;
+    this.radius = 0;
     this.color = color;
-    this.sizeCounter = index;
     this.y = (11 - index) * 10;
     this.x = x;
     this.theta = (index+column)/10; 

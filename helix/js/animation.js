@@ -13,7 +13,7 @@ class Animation{
   }
   animate(){
     setInterval(function () {
-      helix.context.fillStyle = "#222222";
+      helix.context.fillStyle = "#043a4a";
       helix.context.fillRect(0, 0, cnvWidth, cnvHeight);
       for (var i = 0; i < 30; i++) {
         helix.columns1[i].update(helix.context);
