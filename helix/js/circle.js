@@ -2,14 +2,14 @@ class Circle{
   constructor(index, color, x, column){
     this.radius = 0;
     this.color = color;
-    this.y = (11 - index) * 10;
+    this.y = (11 - index) * 12;
     this.x = x;
     this.theta = (index+column)/10; 
   }
-  
+
   changeSize(){
     this.theta = (this.theta + 0.02)%Math.PI;
-    this.radius = Math.abs(Math.sin(this.theta) * 7);
+    this.radius = Math.abs(Math.sin(this.theta)**3 * 8);
   }
   update(ctx, y) {
     
