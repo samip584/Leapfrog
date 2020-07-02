@@ -20,3 +20,23 @@ canvas.addEventListener("click", function(evt){
         break;
   }
 });
+
+document.addEventListener('keyup', function(key){
+  if(key.keyCode === 32){
+    switch(game.state){
+        case 0:
+          game.state = 1;
+          break;
+        case 1:
+            game.bird.jump();
+            break;
+        case 2:
+          game.state = 0;
+          game.bird.y = 137;
+          game.bird.speed = 0; 
+          game.pipes.position = [];
+          score = 0;
+          break;
+    }
+  }
+});

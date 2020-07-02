@@ -31,7 +31,6 @@ class Pipes{
       if(p.x < -this.width){
         this.position = this.position.filter(item => item !== p);
         score += 1;
-        console.log(score)
       }
       else{
         ctx.drawImage(sprite, this.topPipe.sX, this.topPipe.sY, this.width, this.height, p.x, topYPos, this.width, this.height);  

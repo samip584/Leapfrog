@@ -87,14 +87,12 @@ class Game{
         && this.bird.y + 2 * this.bird.radius > p.y 
         && this.bird.y < p.y + this.pipes.height){
         this.state = 2;
-        console.log('dead by top')
       }
       if(this.bird.x + 2 * this.bird.radius > p.x 
         && this.bird.x < p.x + this.pipes.width 
         && this.bird.y + 2 * this.bird.radius > bottomPipeYPos
         && this.bird.y< bottomPipeYPos + this.pipes.height){
           this.state = 2;
-        console.log('dead by bottom')
       }
     }
   }
@@ -109,4 +107,4 @@ function gameLoop(){
   requestAnimationFrame(gameLoop);
 }
 
-gameLoop()
+sprite.onload = function() {gameLoop()};
