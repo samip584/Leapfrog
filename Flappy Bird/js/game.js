@@ -69,6 +69,9 @@ class Game{
     this.context.strokeText(score, cnvWidth/2, 50);
   }
   checkGroundCollision(){
+    if (this.bird.y<0){
+      game.state = 2
+    }
     if (this.bird.y+ this.bird.height>this.ground.y){
       this.bird.y = cnvHeight - this.ground.height - this.bird.height;
       game.state = 2
