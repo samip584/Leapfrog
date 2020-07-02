@@ -9,7 +9,7 @@ class Circle{
 
   changeSize(){
     this.theta = (this.theta + 0.02)%Math.PI;
-    this.radius = Math.abs(Math.sin(this.theta)**3 * 8);
+    this.radius = Math.abs(Math.sin(this.theta)**2 * 8);
   }
   update(ctx, y) {
     
