@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Pitch Detector</title>
+		<link href='http://fonts.googleapis.com/css?family=Alike' rel='stylesheet' type='text/css'>
+		<style>
+			#flat { display: none; }
+			#sharp { display: none; }
+			.flat #flat { display: inline; }
+			.sharp #sharp { display: inline; }
+		</style>
+	</head>
+	<body>
+		<script src="js/initializer.js"></script>
+		<script src="js/constants.js"></script>
+		<script src="js/autoCorrelate.js"></script>
+		<script src="js/engine.js"></script>
+
+
+		<div id="detector" class="vague">
+			<div class="pitch"><span id="pitch">--</span>Hz</div>
+			<div class="note"><span id="note">--</span></div>   
+			<canvas id="output" width=300 height=42></canvas>
+			<div id="detune"><span id="detune_amt">--</span><span id="flat">cents &#9837;</span><span id="sharp">cents &#9839;</span></div>
+		</div>
+
+
+	</body>
+</html>
