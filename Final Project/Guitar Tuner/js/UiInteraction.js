@@ -42,7 +42,7 @@ function drawNeedle(state, angle = 0){
   ctx.translate(250, 250);
   ctx.rotate(angle);
   ctx.translate(-250, -250);
-  ctx.drawImage(needle, 250, 86, 12, 180);
+  ctx.drawImage(needle, 245, 86, 12, 180);
   ctx.restore();
   
 
