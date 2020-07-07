@@ -1,5 +1,5 @@
 var tick = 0;
-var noteStrings = ["A#0", "B0", "C0", "C#0", "D0", "D#0", "E0", "F0", "F#0", "G0", "G#0", "A0",
+const noteStrings = ["A#0", "B0", "C0", "C#0", "D0", "D#0", "E0", "F0", "F#0", "G0", "G#0", "A0",
 									 "A#1", "B1", "C1", "C#1", "D1", "D#1", "E1", "F1", "F#1", "G1", "G#1", "A1",
 									 "A#2", "B2", "C2", "C#2", "D2", "D#2", "E2", "F2", "F#2", "G2", "G#2", "A2",
 									 "A#3", "B3", "C3", "C#3", "D3", "D#3", "E3", "F3", "F#3", "G3", "G#3", "A3",
@@ -10,5 +10,18 @@ var noteStrings = ["A#0", "B0", "C0", "C#0", "D0", "D#0", "E0", "F0", "F#0", "G0
                    "A#8", "B8", "C8", "C#8", "D8", "D#8", "E8", "F8", "F#8", "G8", "G#8" ,"A8"
                   ];
 
-var buflen = 1024;
-var buf = new Float32Array( buflen ); //representation of sound frequency
+const buflen = 1024;
+const buf = new Float32Array( buflen ); //representation of sound frequency
+
+
+const canvas = document.querySelector('canvas');
+const ctx = canvas.getContext("2d");
+
+const needles = ['./images/outOftuneNeedle.png', './images/inactiveNeedle.png', './images/intuneNeedle.png']
+
+let guitarTunings = [
+	{name: 'Standard tuning', notes : ['E', 'A', 'D', 'G', 'B', 'E']},
+	{name: 'Open D tuning', notes : ['D', 'A', 'D', 'F#', 'A', 'D']},
+	{name: 'Open G tuning', notes : ['D', 'G', 'D', 'G', 'B', 'D']}
+]
+

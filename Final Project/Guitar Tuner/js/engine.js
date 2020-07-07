@@ -45,53 +45,69 @@ function getNote(Notes){
 }
 
 function correctionAction(frequency, note){
-	if(frequency > frequencyFromNoteNumber(note) * Math.pow(2, 1 / 48))
-		console.log(' lower ')
-	else if(frequency < frequencyFromNoteNumber(note) * Math.pow(2, -1 / 48))
-		console.log(' higher ')
+	let radius = 180;
+	let acctualFrequency = frequencyFromNoteNumber(note);
+	let circumference = Math.PI * radius;
+	
+	if	(frequency > acctualFrequency){
+		let arc = ((frequency - acctualFrequency)/(acctualFrequency * Math.pow(2, 1 / 24) - acctualFrequency)) * (circumference/2);
+		angle = arc/radius;
+	}
+	else{
+		let arc = ((acctualFrequency-frequency)/( acctualFrequency - acctualFrequency * Math.pow(2, 1 / 24))) * (circumference/2);
+		angle = arc/radius;
+	}
+
+	if(frequency > frequencyFromNoteNumber(note) * Math.pow(2, 1 / 48)){
+		adjustment.innerHTML= 'TOO HIGH!';
+		adjustmentState = -1;
+		console.log(' TOO HIGH! ');
+	}
+	else if(frequency < frequencyFromNoteNumber(note) * Math.pow(2, -1 / 48)){
+		adjustmentState = -1;
+		adjustment.innerHTML= 'TOO LOW!';
+		console.log(' TOO LOW! ');
+	}
+	else{
+		adjustment.innerHTML = 'In Tune';
+		adjustmentState = 1;
+		console.log(' In Tune ');
+	}
 }
 
-
-
-var notes = [];
-
 function updatePitch( ) {
+	let adjustment = document.getElementById('adjustment');
 	tick +=1;
 	analyser.getFloatTimeDomainData( buf );
-	var ac = autoCorrelate( buf, audioContext.sampleRate ); //frequency
+	let ac = autoCorrelate( buf, audioContext.sampleRate ); //frequency
+
  	if (ac == -1) {
- 		detectorElem.className = "vague";
-	 	pitchElem.innerText = "--";
-		noteElem.innerText = "-";
-		detuneElem.className = "";
-		detuneAmount.innerText = "--";
+		adjustment.innerHTML = 'Pluck a string';
 		tick = 0;
 		notes = [];
+		drawBackGround();
+	  drawNeedle(0, 0);
 	 } 
-	 else {
+	else {
+		drawBackGround();
 		pitch = ac;
 		notes.push({note : noteFromPitch(pitch), pitch : pitch})
+		if (note){
+			drawNote(note, notePitch, 1);
+			drawNeedle(adjustmentState, angle);
+		}
 		if (tick > 6){
+
 			tick = 0;
 			var Note = getNote(notes);
 			correctionAction(Note.pitch, Note.note)
 			notes = [];
-			detectorElem.className = "confident";
-			pitchElem.innerText = Math.round( Note.pitch ) ;
-			
-			noteElem.innerHTML = noteStrings[Note.note];
-			var detune = centsOffFromPitch( Note.pitch, Note.note );
+			note = noteStrings[Note.note];
+			notePitch = Note.pitch.toFixed(2);
+			let detune = centsOffFromPitch( Note.pitch, Note.note );
+
 			console.log(Note, detune)
-			if (detune == 0 ) {
-				detuneElem.className = "";
-				detuneAmount.innerHTML = "--";
-			} else {
-				if (detune < 0)
-					detuneElem.className = "flat";
-				else
-					detuneElem.className = "sharp";
-				detuneAmount.innerHTML = Math.abs( detune );
-			}
+	
 		}
 
 	}

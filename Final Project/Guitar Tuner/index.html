@@ -2,28 +2,43 @@
 <html>
 	<head>
 		<title>Pitch Detector</title>
-		<link href='http://fonts.googleapis.com/css?family=Alike' rel='stylesheet' type='text/css'>
-		<style>
-			#flat { display: none; }
-			#sharp { display: none; }
-			.flat #flat { display: inline; }
-			.sharp #sharp { display: inline; }
-		</style>
+		<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet"> 
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
-		<script src="js/initializer.js"></script>
-		<script src="js/constants.js"></script>
-		<script src="js/autoCorrelate.js"></script>
-		<script src="js/engine.js"></script>
 
-
-		<div id="detector" class="vague">
-			<div class="pitch"><span id="pitch">--</span>Hz</div>
-			<div class="note"><span id="note">--</span></div>   
-			<canvas id="output" width=300 height=42></canvas>
-			<div id="detune"><span id="detune_amt">--</span><span id="flat">cents &#9837;</span><span id="sharp">cents &#9839;</span></div>
+		<div class = "nav-wrapper">
+			<div class="nav-container clearfix center">
+				<div class="logo">Guitar Tuner</div>
+				<div class="option">Tuner</div>
+			</div>
 		</div>
 
+		<div class = "content-container center">
+			<canvas id = "canvas" height="270", width="500"></canvas>
+			<div id = "adjustment">Pluck a string</div>
+			<div class = "instrument-notes clearfix">
+			</div>
+			<div class = "selection clearfix">
+				<button class = "instrument-options-button" id="instrument">Guitar</button>
+				<button class = "tuning-options-button" id="tuning">Standard tuning</button>
+			</div>
+			
+			
+		</div>
+		<div id="tuning-div">
+			<div id="tuning-options" class="dropdown-content">
+			</div>
+		</div>
+
+		<script src="js/constants.js"></script>
+		<script src="js/autoCorrelate.js"></script>
+		<script src="js/UiInteraction.js"></script>
+		<script src="js/initializer.js"></script>
+		<script src="js/engine.js"></script>
 
 	</body>
 </html>

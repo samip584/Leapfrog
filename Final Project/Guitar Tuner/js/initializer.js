@@ -2,24 +2,18 @@ window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
 window.onload = function() {
 	audioContext = new AudioContext();
-	MAX_SIZE = Math.max(4,Math.floor(audioContext.sampleRate/5000));	// corresponds to a 5kHz signal
-	
-	detectorElem = document.getElementById( "detector" );
-	canvasElem = document.getElementById( "output" );
-
-	pitchElem = document.getElementById( "pitch" );
-	noteElem = document.getElementById( "note" );
-	detuneElem = document.getElementById( "detune" );
-	detuneAmount = document.getElementById( "detune_amt" );
-
-	detectorElem.ondragenter = function () { 
-		this.classList.add("droptarget"); 
-		return false; };
-	detectorElem.ondragleave = function () { this.classList.remove("droptarget"); return false; };
-	detectorElem.ondrop = function (e) {
-  		this.classList.remove("droptarget");
-  		e.preventDefault();
-	};
+  MAX_SIZE = Math.max(4,Math.floor(audioContext.sampleRate/5000));	// corresponds to a 5kHz signal
+  let tuningOptions = document.getElementById('tuning-options')
+  guitarTunings.forEach(function(option){
+    let dropdownOption = document.createElement('div');
+    dropdownOption.classList.add('dropdown-option');
+    let htmlContent = option.name + '<br>';
+    for(i=0; i<option.notes.length - 1; i++)
+      htmlContent += option.notes[i] + ' \ ';
+    dropdownOption.innerHTML =  htmlContent;
+    tuningOptions.appendChild(dropdownOption);
+  })
+  changeTuning();
 }
 
 function error() {
