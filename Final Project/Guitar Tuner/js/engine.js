@@ -46,39 +46,37 @@ function getNote(Notes){
 
 function getNoteToTune(Note){
 	let minSpace = noteStrings.length;
-	let noteToTune;
+	
 	guitarTunings[0].notes.forEach(function(note){
-		console.log((noteStrings).indexOf(note), Note.note, Math.abs(noteStrings.indexOf(note) - Note.note));
 		if (Math.abs(noteStrings.indexOf(note) - Note.note) < minSpace){
 			minSpace = Math.abs(noteStrings.indexOf(note) - Note.note)
 			noteToTune = note;
 		}
 	})
 	
-	console.log(noteToTune);
 }
 
 function correctionAction(frequency, note){
 	let radius = 180;
-	let acctualFrequency = frequencyFromNoteNumber(note);
+	let acctualFrequency = frequencyFromNoteNumber(noteStrings.indexOf(noteToTune));
 	let circumference = Math.PI * radius;
-	
+	console.log(acctualFrequency)
 	if	(frequency > acctualFrequency){
-		let arc = ((frequency - acctualFrequency)/(acctualFrequency * Math.pow(2, 1 / 24) - acctualFrequency)) * (circumference/2);
+		let arc = ((frequency - acctualFrequency)/(acctualFrequency * Math.pow(2, 1 / 6) - acctualFrequency)) * (circumference/2);
 		angle = arc/radius;
 	}
 	else{
-		let arc = ((acctualFrequency-frequency)/( acctualFrequency - acctualFrequency * Math.pow(2, 1 / 24))) * (circumference/2);
+		let arc = ((acctualFrequency-frequency)/( acctualFrequency - acctualFrequency * Math.pow(2, 1 / 6))) * (circumference/2);
 		angle = arc/radius;
 	}
 
-	if(frequency > frequencyFromNoteNumber(note) * Math.pow(2, 1 / 48)){
+	if(frequency > frequencyFromNoteNumber(noteStrings.indexOf(noteToTune)) * Math.pow(2, 1 / 48)){
 		adjustment.innerHTML= 'TOO HIGH!';
 		adjustmentState = -1;
 		noteColor = "#ffd83b";
 		// console.log(' TOO HIGH! ');
 	}
-	else if(frequency < frequencyFromNoteNumber(note) * Math.pow(2, -1 / 48)){
+	else if(frequency < frequencyFromNoteNumber(noteStrings.indexOf(noteToTune)) * Math.pow(2, -1 / 48)){
 		adjustmentState = -1;
 		adjustment.innerHTML= 'TOO LOW!';
 		noteColor = "#ffd83b";
@@ -103,7 +101,8 @@ function updatePitch( ) {
 		tick = 0;
 		notes = [];
 		drawBackGround();
-	  drawNeedle(0, 0);
+		drawNeedle(0, 0);
+		resetNoteDivs();
 	 } 
 	else {
 		drawBackGround();
@@ -118,6 +117,7 @@ function updatePitch( ) {
 			tick = 0;
 			var Note = getNote(notes);
 			getNoteToTune(Note);
+			showNoteToTune("#2AC70A");
 			correctionAction(Note.pitch, Note.note)
 			notes = [];
 			note = noteStrings[Note.note];

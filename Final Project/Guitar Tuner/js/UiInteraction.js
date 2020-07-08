@@ -1,14 +1,16 @@
-const tuning = document.getElementById('tuning');
-const tuningOptions = document.getElementById('tuning-div');
-let optionDisplay = false;
-
 let angle =0;
+let noteDivs;
 let notes = [];
+let noteToTune;
 let note, notePitch;
 let adjustmentState;
 let currentTuning = 0;
+let optionDisplay = false;
 let noteColor = "#ffd83b";
-let noteDivs
+
+const tuning = document.getElementById('tuning');
+const tuningOptions = document.getElementById('tuning-div');
+
 
 
 tuning.addEventListener('click', function(){
@@ -68,4 +70,17 @@ function changeTuning(){
 		instrumentNotes.appendChild(instrumentNote);
   })
   console.log(noteDivs)
+}
+
+function resetNoteDivs(){
+  let instrumentNotes = document.getElementsByClassName('instrument-note');
+  for( i = 0; i< instrumentNotes.length; i++)
+    instrumentNotes[i].style.backgroundColor = "#ef8354";
+}
+
+
+function showNoteToTune(color){
+  let toTunediv = noteDivs[noteToTune];
+  console.log(toTunediv)
+  toTunediv.style.backgroundColor = color;
 }
