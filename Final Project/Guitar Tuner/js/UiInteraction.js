@@ -9,19 +9,23 @@ let optionDisplay = false;
 let noteColor = "#ffd83b";
 
 const tuning = document.getElementById('tuning');
-const tuningOptions = document.getElementById('tuning-div');
+const tuningOptionsDiv = document.getElementById('tuning-div');
+const tuningOptionsButton = document.querySelector('.tuning-options-button');
+tuningOptionsDiv.addEventListener('click', function(){
+  tuningOptionsDiv.style.display = 'none';
+})
 
 
 
 tuning.addEventListener('click', function(){
   if (optionDisplay){
     optionDisplay = false;
-    tuningOptions.style.display = 'none';
+    tuningOptionsDiv.style.display = 'none';
   }
   else
   {
     optionDisplay = true;
-    tuningOptions.style.display = 'block';
+    tuningOptionsDiv.style.display = 'block';
   }
 })
 
@@ -77,6 +81,7 @@ function drawNote(note, pitch, detune){
 function changeTuning(){
   noteDivs = {}
   let instrumentNotes = document.querySelector('.instrument-notes');
+  instrumentNotes.textContent = '';
 	guitarTunings[currentTuning].notes.forEach(function(note){
 		let instrumentNote = document.createElement('div');
 		instrumentNote.classList.add('instrument-note')
@@ -84,7 +89,7 @@ function changeTuning(){
     noteDivs[note] = instrumentNote;
 		instrumentNotes.appendChild(instrumentNote);
   })
-  console.log(noteDivs)
+  tuningOptionsButton.innerHTML = guitarTunings[currentTuning].name;
 }
 
 function resetNoteDivs(){

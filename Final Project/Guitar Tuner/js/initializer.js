@@ -2,7 +2,7 @@ window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
 window.onload = function() {
 	audioContext = new AudioContext();
-  MAX_SIZE = Math.max(4,Math.floor(audioContext.sampleRate/5000));	// corresponds to a 5kHz signal
+  MAX_SIZE = Math.max(4,Math.floor(audioContext.sampleRate/5000));	// corresponds to a 5kHz signals
   let tuningOptions = document.getElementById('tuning-options')
   guitarTunings.forEach(function(option){
     let dropdownOption = document.createElement('div');
@@ -12,9 +12,17 @@ window.onload = function() {
       htmlContent += option.notes[i] + ' | ';
     htmlContent += option.notes[option.notes.length-1]
     dropdownOption.innerHTML =  htmlContent;
+
+    dropdownOption.addEventListener('click', function(){
+      console.log(guitarTunings.indexOf(option))
+      currentTuning = guitarTunings.indexOf(option);
+      tuningOptionsDiv.style.display = 'none';
+      changeTuning();
+    })
     tuningOptions.appendChild(dropdownOption);
   })
   changeTuning();
+  tuningOptionsButton.innerHTML = guitarTunings[0].name;
   
   toggleLiveInput();
 }
