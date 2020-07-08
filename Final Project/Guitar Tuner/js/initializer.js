@@ -8,12 +8,15 @@ window.onload = function() {
     let dropdownOption = document.createElement('div');
     dropdownOption.classList.add('dropdown-option');
     let htmlContent = option.name + '<br>';
-    for(i=0; i<option.notes.length - 1; i++)
-      htmlContent += option.notes[i] + ' \ ';
+    for(let i=0; i<option.notes.length - 1; i++)
+      htmlContent += option.notes[i] + ' | ';
+    htmlContent += option.notes[option.notes.length-1]
     dropdownOption.innerHTML =  htmlContent;
     tuningOptions.appendChild(dropdownOption);
   })
   changeTuning();
+  
+  toggleLiveInput();
 }
 
 function error() {
@@ -57,7 +60,3 @@ function toggleLiveInput() {
           },
       }, gotStream);
 }
-
-
-
-toggleLiveInput();

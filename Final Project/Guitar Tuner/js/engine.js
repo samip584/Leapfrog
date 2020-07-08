@@ -1,12 +1,12 @@
 const noteFromPitch =( frequency ) => {
 	var noteNum = 12 * (Math.log( frequency / 440 )/Math.log(2) );
-	// console.log(frequency, Math.round( noteNum ) + 59)
-	return Math.round( noteNum ) + 59;
+	// console.log(frequency, Math.round( noteNum ) + 57)
+	return Math.round( noteNum ) + 57;
 }
 
 function frequencyFromNoteNumber( note ) {
-	// console.log(440 * Math.pow(2,(note-59)/12))
-	return 440 * Math.pow(2,(note-59)/12);
+	// console.log(440 * Math.pow(2,(note-57)/12))
+	return 440 * Math.pow(2,(note-57)/12);
 }
 
 function centsOffFromPitch( frequency, note ) {
@@ -44,6 +44,20 @@ function getNote(Notes){
 	return {note: tempNote, pitch : avg}
 }
 
+function getNoteToTune(Note){
+	let minSpace = noteStrings.length;
+	let noteToTune;
+	guitarTunings[0].notes.forEach(function(note){
+		console.log((noteStrings).indexOf(note), Note.note, Math.abs(noteStrings.indexOf(note) - Note.note));
+		if (Math.abs(noteStrings.indexOf(note) - Note.note) < minSpace){
+			minSpace = Math.abs(noteStrings.indexOf(note) - Note.note)
+			noteToTune = note;
+		}
+	})
+	
+	console.log(noteToTune);
+}
+
 function correctionAction(frequency, note){
 	let radius = 180;
 	let acctualFrequency = frequencyFromNoteNumber(note);
@@ -61,17 +75,20 @@ function correctionAction(frequency, note){
 	if(frequency > frequencyFromNoteNumber(note) * Math.pow(2, 1 / 48)){
 		adjustment.innerHTML= 'TOO HIGH!';
 		adjustmentState = -1;
-		console.log(' TOO HIGH! ');
+		noteColor = "#ffd83b";
+		// console.log(' TOO HIGH! ');
 	}
 	else if(frequency < frequencyFromNoteNumber(note) * Math.pow(2, -1 / 48)){
 		adjustmentState = -1;
 		adjustment.innerHTML= 'TOO LOW!';
-		console.log(' TOO LOW! ');
+		noteColor = "#ffd83b";
+		// console.log(' TOO LOW! ');
 	}
 	else{
 		adjustment.innerHTML = 'In Tune';
 		adjustmentState = 1;
-		console.log(' In Tune ');
+		noteColor = "#2AC70A";
+		// console.log(' In Tune ');
 	}
 }
 
@@ -100,6 +117,7 @@ function updatePitch( ) {
 
 			tick = 0;
 			var Note = getNote(notes);
+			getNoteToTune(Note);
 			correctionAction(Note.pitch, Note.note)
 			notes = [];
 			note = noteStrings[Note.note];
