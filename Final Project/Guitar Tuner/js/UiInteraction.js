@@ -28,6 +28,15 @@ tuning.addEventListener('click', function(){
 function drawBackGround(){
   ctx.imageSmoothingQuality = 'high';
   ctx.fillStyle = "#ffffff";
+  ctx.moveTo(245, 65);
+  ctx.lineTo(255, 65);
+  ctx.lineTo(250, 70);
+  ctx.fill();
+  ctx.fillRect(220, 41, 60, 24);
+  ctx.fillStyle = "#2AC70A";
+  ctx.font = "14px Arial";
+  ctx.fillText("Perfect", 227, 58);
+  ctx.fillStyle = "#ffffff";
   ctx.beginPath();
   ctx.arc(250, 270, 200, Math.PI, 2 * Math.PI);
   ctx.fill(); 
@@ -35,6 +44,10 @@ function drawBackGround(){
   ctx.font = "30px Arial";
   ctx.fillText("♯", 390, 225); 
   ctx.fillText("♭", 110, 225); 
+  ctx.strokeStyle = "#b5b5b5";
+  ctx.moveTo(250, 300);
+  ctx.lineTo(250, 70);
+  ctx.stroke(); 
 }
 
 
@@ -43,11 +56,13 @@ function drawNeedle(state, angle = 0){
   let needle = new Image;  
   ctx.save(); 
   needle.src = needles[state + 1];
-  ctx.translate(250, 250);
+  ctx.translate(250, 247);
   ctx.rotate(angle);
-  ctx.translate(-250, -250);
-  ctx.drawImage(needle, 245, 86, 12, 180);
+  ctx.translate(-250, -247);
+  ctx.drawImage(needle, 244, 86, 12, 180);
   ctx.restore();
+  ctx.font = "1px Arial";
+  ctx.fillStyle = "red";
 }
 
 function drawNote(note, pitch, detune){

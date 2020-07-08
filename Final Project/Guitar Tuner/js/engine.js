@@ -50,7 +50,11 @@ function getNoteToTune(Note){
 	guitarTunings[0].notes.forEach(function(note){
 		if (Math.abs(noteStrings.indexOf(note) - Note.note) < minSpace){
 			minSpace = Math.abs(noteStrings.indexOf(note) - Note.note)
-			noteToTune = note;
+			if(noteToTune !== note){
+				resetNoteDivs();
+				noteToTune = note;
+			}	
+			
 		}
 	})
 	
