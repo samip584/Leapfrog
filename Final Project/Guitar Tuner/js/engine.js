@@ -1,5 +1,5 @@
 const noteFromPitch =( frequency ) => {
-	var noteNum = 12 * (Math.log( frequency / 440 )/Math.log(2) );
+	var noteNum = 12 * (Math.log( frequency / 440 )/Math.log(2) ) + 57;
 	// console.log(frequency, Math.round( noteNum ) + 57)
 	return Math.round( noteNum ) + 57;
 }
@@ -120,7 +120,7 @@ function updatePitch( ) {
 			drawNote(note, notePitch, 1);
 			drawNeedle(adjustmentState, angle);
 		}
-		if (tick > 6){
+		if (tick > 5){
 
 			tick = 0;
 			var Note = getNote(notes);

@@ -22,6 +22,9 @@ window.onload = function() {
     tuningOptions.appendChild(dropdownOption);
   })
   changeTuning();
+
+  audioContext.resume();
+
   tuningOptionsButton.innerHTML = guitarTunings[0].name;
   
   toggleLiveInput();
