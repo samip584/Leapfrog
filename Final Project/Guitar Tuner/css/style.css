@@ -1,6 +1,9 @@
 body { 
   font: 14pt 'roboto', sans-serif;
 }
+body:focus{
+  Outline:none;
+}
 
 .nav-container{
   width: 940px;
@@ -185,19 +188,17 @@ body {
   margin-top: 60px;
   margin-left: calc(50% - 100px);
   height: 38px;
-  padding-top: 16px;
+  padding-top: 15px;
   width: 200px;
   text-align: center;
   background-color: white;
   cursor: pointer;
   font-size: 18px;
+  box-shadow: 0px 8px 16px 0px rgba(230, 217, 217, 0.2);
 }
 
 #start-button:hover{
-  height: 40px;
-  padding-top: 16px;
-  width: 204px;
-  margin-left: calc(50% - 102px);
-  margin-top: 58px;
-  font-size: 20px;
+  color: white;
+  background-color: #2D3142;
+  transition: 0.25s;
 }
