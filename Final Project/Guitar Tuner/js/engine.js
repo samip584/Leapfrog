@@ -115,6 +115,7 @@ function updatePitch( ) {
 	else {
 		drawBackGround();
 		pitch = ac;
+	
 		notes.push({note : noteFromPitch(pitch), pitch : pitch})
 		if (note){
 			drawNote(note, notePitch, 1);
@@ -127,6 +128,7 @@ function updatePitch( ) {
 			getNoteToTune(Note);
 			showNoteToTune("#2AC70A");
 			correctionAction(Note.pitch, Note.note)
+			console.log(Note.pitch) //bajirako pitch
 			notes = [];
 			note = noteStrings[Note.note];
 			notePitch = Note.pitch.toFixed(2);

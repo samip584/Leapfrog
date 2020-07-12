@@ -1,7 +1,10 @@
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
-window.onload = function() {
-	audioContext = new AudioContext();
+programStarter = document.getElementById('start-button')
+programStarter.addEventListener('click', function(event){
+  let welcomePage = document.getElementById('welcome-page')
+  welcomePage.style.display = 'none';
+  audioContext = new AudioContext();
   MAX_SIZE = Math.max(4,Math.floor(audioContext.sampleRate/5000));	// corresponds to a 5kHz signals
   let tuningOptions = document.getElementById('tuning-options')
   guitarTunings.forEach(function(option){
@@ -28,7 +31,8 @@ window.onload = function() {
   tuningOptionsButton.innerHTML = guitarTunings[0].name;
   
   toggleLiveInput();
-}
+})
+
 
 function error() {
   alert('Stream generation failed.');
@@ -64,7 +68,7 @@ function toggleLiveInput() {
               "mandatory": {
                   "googEchoCancellation": "false",
                   "googAutoGainControl": "false",
-                  "googNoiseSuppression": "false",
+                  "googNoiseSuppression": "true",
                   "googHighpassFilter": "false"
               },
               "optional": []
