@@ -19,9 +19,23 @@ const ctx = canvas.getContext("2d");
 
 const needles = ['./images/outOftuneNeedle.png', './images/inactiveNeedle.png', './images/intuneNeedle.png']
 
-let guitarTunings = [
-	{name: 'Standard tuning', notes : ['E2', 'A2', 'D3', 'G3', 'B3', 'E4']},
-	{name: 'Open D tuning', notes : ['D2', 'A2', 'D3', 'F#3', 'A3', 'D4']},
-	{name: 'Open G tuning', notes : ['D2', 'G2', 'D3', 'G3', 'B3', 'D4']}
-]
-
+let instruments = {
+	guitar : {
+		name : 'Guitar',
+		tuning : [
+			{name: 'Standard tuning', notes : ['E2', 'A2', 'D3', 'G3', 'B3', 'E4']},
+			{name: 'Open D tuning', notes : ['D2', 'A2', 'D3', 'F#3', 'A3', 'D4']},
+			{name: 'Open G tuning', notes : ['D2', 'G2', 'D3', 'G3', 'B3', 'D4']}
+		]
+	},
+	ukulele: {
+		name : 'Ukulele',
+		tuning : [
+			{name: 'Standard tuning', notes : ['G4', 'C4', 'E4', 'A4']},
+			{name: 'D tuning', notes : ['A4', 'D4', 'F#4', 'B4']},
+			{name: 'Low G tuning', notes : ['G3', 'C4', 'E4', 'A4']},
+			{name: 'Canadian tuning', notes : ['A3', 'D4', 'F#4', 'B4']},
+			{name: 'Baritone tuning', notes : ['D3', 'G3', 'B3', 'E4']}
+		]
+	}
+}

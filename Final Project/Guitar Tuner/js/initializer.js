@@ -7,7 +7,7 @@ programStarter.addEventListener('click', function(event){
   audioContext = new AudioContext();
   MAX_SIZE = Math.max(4,Math.floor(audioContext.sampleRate/5000));	// corresponds to a 5kHz signals
   let tuningOptions = document.getElementById('tuning-options')
-  guitarTunings.forEach(function(option){
+  instruments.guitar.tuning.forEach(function(option){
     let dropdownOption = document.createElement('div');
     dropdownOption.classList.add('dropdown-option');
     let htmlContent = option.name + '<br>';
@@ -17,8 +17,8 @@ programStarter.addEventListener('click', function(event){
     dropdownOption.innerHTML =  htmlContent;
 
     dropdownOption.addEventListener('click', function(){
-      console.log(guitarTunings.indexOf(option))
-      currentTuning = guitarTunings.indexOf(option);
+      console.log(instruments.guitar.tuning.indexOf(option))
+      currentTuning = instruments.guitar.tuning.indexOf(option);
       tuningOptionsDiv.style.display = 'none';
       changeTuning();
     })
@@ -28,7 +28,7 @@ programStarter.addEventListener('click', function(event){
 
   audioContext.resume();
 
-  tuningOptionsButton.innerHTML = guitarTunings[0].name;
+  tuningOptionsButton.innerHTML = instruments.guitar.tuning[0].name;
   
   toggleLiveInput();
 })

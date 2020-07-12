@@ -1,8 +1,9 @@
 body { 
   font: 14pt 'roboto', sans-serif;
+  outline: none;
 }
 body:focus{
-  Outline:none;
+  outline: none;
 }
 
 .nav-container{
@@ -200,5 +201,5 @@ body:focus{
 #start-button:hover{
   color: white;
   background-color: #2D3142;
-  transition: 0.25s;
+  transition: 0.4s;
 }

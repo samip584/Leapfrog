@@ -82,14 +82,14 @@ function changeTuning(){
   noteDivs = {}
   let instrumentNotes = document.querySelector('.instrument-notes');
   instrumentNotes.textContent = '';
-	guitarTunings[currentTuning].notes.forEach(function(note){
+	instruments.guitar.tuning[currentTuning].notes.forEach(function(note){
 		let instrumentNote = document.createElement('div');
 		instrumentNote.classList.add('instrument-note')
     instrumentNote.innerHTML = note.slice(0, -1);;
     noteDivs[note] = instrumentNote;
 		instrumentNotes.appendChild(instrumentNote);
   })
-  tuningOptionsButton.innerHTML = guitarTunings[currentTuning].name;
+  tuningOptionsButton.innerHTML = instruments.guitar.tuning[currentTuning].name;
 }
 
 function resetNoteDivs(){
