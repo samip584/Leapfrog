@@ -5,29 +5,75 @@ let noteToTune;
 let note, notePitch;
 let adjustmentState;
 let currentTuning = 0;
-let optionDisplay = false;
 let noteColor = "#ffd83b";
+let instrument = 'guitar';
+let tuningOptionDisplay = false;
+let instrumentOptionDisplay = false;
 
-const tuning = document.getElementById('tuning');
 const tuningOptionsDiv = document.getElementById('tuning-div');
+const tuningOptions = document.getElementById('tuning-options');
+const instrumentNotes = document.querySelector('.instrument-notes');
+const instrumentOptionsDiv = document.getElementById('instrument-div');
+const instrumentOptions = document.getElementById('instrument-options');
 const tuningOptionsButton = document.querySelector('.tuning-options-button');
+const instrumentButton = document.querySelector('.instrument-options-button');
+
+
+
+
 tuningOptionsDiv.addEventListener('click', function(){
   tuningOptionsDiv.style.display = 'none';
 })
 
 
 
-tuning.addEventListener('click', function(){
-  if (optionDisplay){
-    optionDisplay = false;
+instrumentButton.addEventListener('click', function(){
+  if (instrumentOptionDisplay){
+    instrumentOptionDisplay = false;
+    instrumentOptionsDiv.style.display = 'none';
+  }
+  else
+  {
+    instrumentOptionDisplay = true;
+    instrumentOptionsDiv.style.display = 'block';
+    instrumentOptions.style.top = 'calc(50% - '+instrumentOptions.clientHeight/2+'px)'
+  }
+})
+
+tuningOptionsButton.addEventListener('click', function(){
+  if (tuningOptionDisplay){
+    tuningOptionDisplay = false;
     tuningOptionsDiv.style.display = 'none';
   }
   else
   {
-    optionDisplay = true;
+    tuningOptionDisplay = true;
     tuningOptionsDiv.style.display = 'block';
+    tuningOptions.style.top = 'calc(50% - '+tuningOptions.clientHeight/2+'px)'
   }
 })
+
+function changeTuningOptions(){
+  currentTuning = 0;
+  tuningOptions.innerHTML = '';
+  instruments[instrument].tuning.forEach(function(option){
+    let dropdownOption = document.createElement('div');
+    dropdownOption.classList.add('dropdown-option');
+    let htmlContent = option.name + '<br>';
+    for(let i=0; i<option.notes.length - 1; i++)
+      htmlContent += option.notes[i] + ' | ';
+    htmlContent += option.notes[option.notes.length-1]
+    dropdownOption.innerHTML =  htmlContent;
+
+    dropdownOption.addEventListener('click', function(){
+      currentTuning = instruments[instrument].tuning.indexOf(option);
+      tuningOptionsDiv.style.display = 'none';
+      changeTuning();
+    })
+    tuningOptions.appendChild(dropdownOption);
+  })
+  
+}
 
 function drawBackGround(){
   ctx.imageSmoothingQuality = 'high';
@@ -80,16 +126,25 @@ function drawNote(note, pitch, detune){
 
 function changeTuning(){
   noteDivs = {}
-  let instrumentNotes = document.querySelector('.instrument-notes');
   instrumentNotes.textContent = '';
-	instruments.guitar.tuning[currentTuning].notes.forEach(function(note){
+  let instrumentNotesWidth = 0;
+	instruments[instrument].tuning[currentTuning].notes.forEach(function(note){
 		let instrumentNote = document.createElement('div');
 		instrumentNote.classList.add('instrument-note')
     instrumentNote.innerHTML = note.slice(0, -1);;
     noteDivs[note] = instrumentNote;
-		instrumentNotes.appendChild(instrumentNote);
+    instrumentNotes.appendChild(instrumentNote);
+    instrumentNotesWidth += 80;
   })
-  tuningOptionsButton.innerHTML = instruments.guitar.tuning[currentTuning].name;
+  
+  instrumentButton.textContent = '';
+  let instrumentImg = document.createElement('img')
+  instrumentImg.src = instruments[instrument].imageSrc;
+  instrumentImg.title = instrument;
+  instrumentButton.appendChild(instrumentImg);
+  
+  instrumentNotes.style.width = instrumentNotesWidth+'px';
+  tuningOptionsButton.innerHTML = instruments[instrument].tuning[currentTuning].name;
 }
 
 function resetNoteDivs(){

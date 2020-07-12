@@ -55,9 +55,7 @@ body:focus{
   top : 0;
   background-color: rgba(0, 0, 0, 0.3);
 }
-.instrument-notes{
-  padding-left: 10px;
-}
+
 
 .instrument-note{
   float: left;
@@ -129,7 +127,6 @@ body:focus{
   border: 1px solid rgba(0, 0, 0, 0.5);
   margin-left: 70px;
   position: absolute;
-  top: calc(50% - 100px);
   left: calc(50% - 250px);
   background-color: rgba(255, 255, 255);
   width: 370px;
@@ -150,6 +147,42 @@ body:focus{
 
 .dropdown .dropdown-option:hover {
   background-color: #ddd;
+}
+
+#instrument-div{
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top : 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#instrument-options{
+  color:#838383;
+  margin-left: 70px;
+  position: absolute;
+  left: calc(50% - 250px);
+  top: calc(50% - 100px);
+  background-color: rgba(255, 255, 255);
+  width: 370px;
+  box-shadow: 0px 8px 16px 0px rgba(230, 217, 217, 0.2);
+  z-index: 1;
+  text-align: center;
+}
+
+.instrument{
+  display: inline-block;
+  margin: 30px;
+}
+.instrument:hover{
+  opacity: 0.9;
+  cursor: pointer;
+}
+#instrument-options img{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
 }
 
 #welcome-page{

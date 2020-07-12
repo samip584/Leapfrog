@@ -47,7 +47,7 @@ function getNote(Notes){
 function getNoteToTune(Note){
 	let minSpace = noteStrings.length;
 	
-	instruments.guitar.tuning[currentTuning].notes.forEach(function(note){
+	instruments[instrument].tuning[currentTuning].notes.forEach(function(note){
 		if (Math.abs(noteStrings.indexOf(note) - Note.note) < minSpace){
 			minSpace = Math.abs(noteStrings.indexOf(note) - Note.note)
 			if(noteToTune !== note){

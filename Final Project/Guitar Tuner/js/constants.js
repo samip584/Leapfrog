@@ -17,6 +17,7 @@ const buf = new Float32Array( buflen ); //representation of sound frequency
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext("2d");
 
+
 const needles = ['./images/outOftuneNeedle.png', './images/inactiveNeedle.png', './images/intuneNeedle.png']
 
 let instruments = {
@@ -31,7 +32,7 @@ let instruments = {
 	},
 	ukulele: {
 		name : 'Ukulele',
-		imageSrc: './images/guitar.jpg',
+		imageSrc: './images/ukulele.jpg',
 		tuning : [
 			{name: 'Standard tuning', notes : ['G4', 'C4', 'E4', 'A4']},
 			{name: 'D tuning', notes : ['A4', 'D4', 'F#4', 'B4']},

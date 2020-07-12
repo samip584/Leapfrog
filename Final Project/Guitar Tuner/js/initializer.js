@@ -7,30 +7,35 @@ programStarter.addEventListener('click', function(event){
   audioContext = new AudioContext();
   MAX_SIZE = Math.max(4,Math.floor(audioContext.sampleRate/5000));	// corresponds to a 5kHz signals
 
-  let tuningOptions = document.getElementById('tuning-options')
-  instruments.guitar.tuning.forEach(function(option){
-    let dropdownOption = document.createElement('div');
-    dropdownOption.classList.add('dropdown-option');
-    let htmlContent = option.name + '<br>';
-    for(let i=0; i<option.notes.length - 1; i++)
-      htmlContent += option.notes[i] + ' | ';
-    htmlContent += option.notes[option.notes.length-1]
-    dropdownOption.innerHTML =  htmlContent;
+  for (let option in instruments){
+    let instrumentOption = document.createElement('div');
+    instrumentOption.classList.add('instrument');
+    let instrumentImg = document.createElement('img')
+    instrumentImg.classList.add('instrument-option-img');
+    instrumentImg.src = instruments[option].imageSrc;
+    instrumentImg.alt = instruments[option].name;
+    instrumentOption.appendChild(instrumentImg);
+    let instrumentName = document.createElement('div');
+    instrumentName.innerHTML = instruments[option].name;
+    instrumentOption.appendChild(instrumentName);
+    instrumentOptions.appendChild(instrumentOption);
 
-    dropdownOption.addEventListener('click', function(){
-      console.log(instruments.guitar.tuning.indexOf(option))
-      currentTuning = instruments.guitar.tuning.indexOf(option);
-      tuningOptionsDiv.style.display = 'none';
+    instrumentOption.addEventListener('click', function(){
+      instrument = option;
+      instrumentOptionsDiv.style.display = 'none';
+      changeTuningOptions();
       changeTuning();
     })
-    tuningOptions.appendChild(dropdownOption);
-  })
-  
-  changeTuning();
+    
+  }
 
+  changeTuningOptions();
+ 
+  changeTuning();
+  
   audioContext.resume();
 
-  tuningOptionsButton.innerHTML = instruments.guitar.tuning[0].name;
+  tuningOptionsButton.innerHTML = instruments[instrument].tuning[0].name;
   
   toggleLiveInput();
 })
