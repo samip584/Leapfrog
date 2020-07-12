@@ -50,7 +50,8 @@ function getUserMedia(dictionary, callback) {
       navigator.getUserMedia = 
         navigator.getUserMedia ||
         navigator.webkitGetUserMedia ||
-        navigator.mozGetUserMedia;
+        navigator.mozGetUserMedia ||
+        navigator.mediaDevices.getUserMedia({ audio: true, video: false });
       navigator.getUserMedia(dictionary, callback, error);
   } catch (e) {
       alert('getUserMedia threw exception :' + e);
