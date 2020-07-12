@@ -22,6 +22,7 @@ const needles = ['./images/outOftuneNeedle.png', './images/inactiveNeedle.png', 
 let instruments = {
 	guitar : {
 		name : 'Guitar',
+		imageSrc: './images/guitar.jpg',
 		tuning : [
 			{name: 'Standard tuning', notes : ['E2', 'A2', 'D3', 'G3', 'B3', 'E4']},
 			{name: 'Open D tuning', notes : ['D2', 'A2', 'D3', 'F#3', 'A3', 'D4']},
@@ -30,6 +31,7 @@ let instruments = {
 	},
 	ukulele: {
 		name : 'Ukulele',
+		imageSrc: './images/guitar.jpg',
 		tuning : [
 			{name: 'Standard tuning', notes : ['G4', 'C4', 'E4', 'A4']},
 			{name: 'D tuning', notes : ['A4', 'D4', 'F#4', 'B4']},

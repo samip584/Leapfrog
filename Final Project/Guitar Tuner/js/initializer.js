@@ -6,6 +6,7 @@ programStarter.addEventListener('click', function(event){
   welcomePage.style.display = 'none';
   audioContext = new AudioContext();
   MAX_SIZE = Math.max(4,Math.floor(audioContext.sampleRate/5000));	// corresponds to a 5kHz signals
+
   let tuningOptions = document.getElementById('tuning-options')
   instruments.guitar.tuning.forEach(function(option){
     let dropdownOption = document.createElement('div');
@@ -24,6 +25,7 @@ programStarter.addEventListener('click', function(event){
     })
     tuningOptions.appendChild(dropdownOption);
   })
+  
   changeTuning();
 
   audioContext.resume();
