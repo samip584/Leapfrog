@@ -10,7 +10,7 @@ const noteStrings = ["C0", "C#0", "D0", "D#0", "E0", "F0", "F#0", "G0", "G#0", "
 										"C8", "C#8", "D8", "D#8", "E8", "F8", "F#8", "G8", "G#8" ,"A8", "A#8", "B8", 
                   ];
 
-const buflen = 1024;
+const buflen = 2048;
 const buf = new Float32Array( buflen ); //representation of sound frequency
 
 

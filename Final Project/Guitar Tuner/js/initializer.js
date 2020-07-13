@@ -50,8 +50,7 @@ function getUserMedia(dictionary, callback) {
       navigator.getUserMedia = 
         navigator.getUserMedia ||
         navigator.webkitGetUserMedia ||
-        navigator.mozGetUserMedia ||
-        navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+        navigator.mozGetUserMedia;
       navigator.getUserMedia(dictionary, callback, error);
   } catch (e) {
       alert('getUserMedia threw exception :' + e);
@@ -72,7 +71,7 @@ function gotStream(stream) {
 function toggleLiveInput() {
   getUserMedia(
     {
-          "audio": {
+          "audio": { 
               "mandatory": {
                   "googEchoCancellation": "false",
                   "googAutoGainControl": "false",

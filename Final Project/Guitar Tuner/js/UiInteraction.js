@@ -20,6 +20,10 @@ const instrumentButton = document.querySelector('.instrument-options-button');
 
 
 
+instrumentOptionsDiv.addEventListener('click', function(){
+  instrumentOptionsDiv.style.display = 'none';
+})
+
 
 tuningOptionsDiv.addEventListener('click', function(){
   tuningOptionsDiv.style.display = 'none';
@@ -36,7 +40,7 @@ instrumentButton.addEventListener('click', function(){
   {
     instrumentOptionDisplay = true;
     instrumentOptionsDiv.style.display = 'block';
-    instrumentOptions.style.top = 'calc(50% - '+instrumentOptions.clientHeight/2+'px)'
+    instrumentOptions.style.top = 'calc(50% - '+instrumentOptions.clientHeight/2+'px)';
   }
 })
 

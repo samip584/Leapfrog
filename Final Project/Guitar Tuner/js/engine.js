@@ -105,13 +105,15 @@ function updatePitch( ) {
 	let ac = autoCorrelate( buf, audioContext.sampleRate ); //frequency
 
  	if (ac == -1) {
-		adjustment.innerHTML = 'Pluck a string';
-		tick = 0;
-		notes = [];
-		drawBackGround();
-		drawNeedle(0, 0);
-		resetNoteDivs();
-	 } 
+		if(tick > 60){
+			adjustment.innerHTML = 'Pluck a string';
+			tick = 0;
+			notes = [];
+			drawBackGround();
+			drawNeedle(0, 0);
+			resetNoteDivs();
+		}
+	} 
 	else {
 		drawBackGround();
 		pitch = ac;
@@ -121,7 +123,7 @@ function updatePitch( ) {
 			drawNote(note, notePitch, 1);
 			drawNeedle(adjustmentState, angle);
 		}
-		if (tick > 5){
+		if (tick > 10){
 
 			tick = 0;
 			var Note = getNote(notes);

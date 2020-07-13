@@ -29,7 +29,6 @@ function autoCorrelate( buf, sampleRate ) {
 	rms = Math.sqrt(rms/SIZE);
 	if (rms<0.01) // not enough signal
 		return -1;
-
 	var lastCorrelation=1;
 	for (var offset = MIN_SAMPLES; offset < MAX_SAMPLES; offset++) {
 		var correlation = 0;
