@@ -18,7 +18,7 @@ const instrumentOptions = document.getElementById('instrument-options');
 const tuningOptionsButton = document.querySelector('.tuning-options-button');
 const instrumentButton = document.querySelector('.instrument-options-button');
 
-
+let previousNotes=[]
 
 instrumentOptionsDiv.addEventListener('click', function(){
   instrumentOptionsDiv.style.display = 'none';

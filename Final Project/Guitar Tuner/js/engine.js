@@ -64,7 +64,7 @@ function correctionAction(frequency, note){
 	let radius = 180;
 	let acctualFrequency = frequencyFromNoteNumber(noteStrings.indexOf(noteToTune));
 	let circumference = Math.PI * radius;
-	console.log(acctualFrequency)
+	// console.log(acctualFrequency)
 	if	(frequency > acctualFrequency){
 		let arc = ((frequency - acctualFrequency)/(acctualFrequency * Math.pow(2, 1 / 6) - acctualFrequency)) * (circumference/2);
 		angle = arc/radius;
@@ -112,6 +112,7 @@ function updatePitch( ) {
 			drawBackGround();
 			drawNeedle(0, 0);
 			resetNoteDivs();
+			previousNotes=[];
 		}
 	} 
 	else {
@@ -123,21 +124,33 @@ function updatePitch( ) {
 			drawNote(note, notePitch, 1);
 			drawNeedle(adjustmentState, angle);
 		}
-		if (tick > 10){
-
+		if (tick > 5){
 			tick = 0;
-			var Note = getNote(notes);
+			
+			let Note = getNote(notes);
+			previousNotes.push(Note);
+			if (previousNotes.length > 5){
+				previousNotes.shift();
+				for (let i = 1; i < 5; i++)
+					if (Note.note <  previousNotes[previousNotes.length - i].note - 1 || Note.note >  previousNotes[previousNotes.length - i].note + 1){
+						console.log(Note.note)
+						Note =  getNote(previousNotes);	
+						console.log('kawabanga');
+						console.log(Note.note)
+					}
+				
+				console.log(previousNotes)
+			}
 			getNoteToTune(Note);
 			showNoteToTune("#2AC70A");
 			correctionAction(Note.pitch, Note.note)
-			console.log(Note.pitch) //bajirako pitch
+			// console.log(Note.pitch) //bajirako pitch
 			notes = [];
 			note = noteStrings[Note.note];
 			notePitch = Note.pitch.toFixed(2);
 			let detune = centsOffFromPitch( Note.pitch, Note.note );
 
 			console.log(Note, detune)
-	
 		}
 
 	}
