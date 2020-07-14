@@ -121,7 +121,7 @@ function updatePitch( ) {
 	
 		notes.push({note : noteFromPitch(pitch), pitch : pitch})
 		if (note){
-			drawNote(note, notePitch, 1);
+			drawNote(noteToTune, notePitch, 1);
 			drawNeedle(adjustmentState, angle);
 		}
 		if (tick > 5){
