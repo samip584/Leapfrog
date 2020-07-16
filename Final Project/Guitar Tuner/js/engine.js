@@ -1,11 +1,9 @@
 const noteFromPitch =( frequency ) => {
 	var noteNum = 12 * (Math.log( frequency / 440 )/Math.log(2) );
-	// console.log(frequency, Math.round( noteNum ) + 57)
 	return Math.round( noteNum ) + 57;
 }
 
 function frequencyFromNoteNumber( note ) {
-	// console.log(440 * Math.pow(2,(note-57)/12))
 	return 440 * Math.pow(2,(note-57)/12);
 }
 
@@ -64,7 +62,6 @@ function correctionAction(frequency, note){
 	let radius = 180;
 	let acctualFrequency = frequencyFromNoteNumber(noteStrings.indexOf(noteToTune));
 	let circumference = Math.PI * radius;
-	// console.log(acctualFrequency)
 	if	(frequency > acctualFrequency){
 		let arc = ((frequency - acctualFrequency)/(acctualFrequency * Math.pow(2, 1 / 6) - acctualFrequency)) * (circumference/2);
 		angle = arc/radius;
@@ -82,19 +79,16 @@ function correctionAction(frequency, note){
 		adjustment.innerHTML= 'TOO HIGH!';
 		adjustmentState = -1;
 		noteColor = "#ffd83b";
-		// console.log(' TOO HIGH! ');
 	}
 	else if(frequency < frequencyFromNoteNumber(noteStrings.indexOf(noteToTune)) * Math.pow(2, -1 / 48)){
 		adjustmentState = -1;
 		adjustment.innerHTML= 'TOO LOW!';
 		noteColor = "#ffd83b";
-		// console.log(' TOO LOW! ');
 	}
 	else{
 		adjustment.innerHTML = 'In Tune';
 		adjustmentState = 1;
 		noteColor = "#2AC70A";
-		// console.log(' In Tune ');
 	}
 }
 
@@ -122,7 +116,8 @@ function updatePitch( ) {
 		notes.push({note : noteFromPitch(pitch), pitch : pitch})
 		if (note){
 			drawNote(noteToTune, notePitch, 1);
-			drawNeedle(adjustmentState, angle);
+			let drawAngle = angle;
+			drawNeedle(adjustmentState, drawAngle);
 		}
 		if (tick > 5){
 			tick = 0;
@@ -133,26 +128,17 @@ function updatePitch( ) {
 				previousNotes.shift();
 				for (let i = 1; i < 5; i++)
 					if (Note.note <  previousNotes[previousNotes.length - i].note - 1 || Note.note >  previousNotes[previousNotes.length - i].note + 1){
-						console.log(Note.note)
 						Note =  getNote(previousNotes);	
-						console.log('kawabanga');
-						console.log(Note.note)
 					}
-				
-				console.log(previousNotes)
 			}
 			getNoteToTune(Note);
 			showNoteToTune("#2AC70A");
 			correctionAction(Note.pitch, Note.note)
-			// console.log(Note.pitch) //bajirako pitch
 			notes = [];
 			note = noteStrings[Note.note];
 			notePitch = Note.pitch.toFixed(2);
 			let detune = centsOffFromPitch( Note.pitch, Note.note );
-
-			console.log(Note, detune)
 		}
-
 	}
 
 	if (!window.requestAnimationFrame)

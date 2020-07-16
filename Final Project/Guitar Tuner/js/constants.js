@@ -20,7 +20,7 @@ const ctx = canvas.getContext("2d");
 
 const needles = ['./images/outOftuneNeedle.png', './images/inactiveNeedle.png', './images/intuneNeedle.png']
 
-let instruments = {
+let instruments =  JSON.parse(localStorage.getItem('instruments')) || {
 	guitar : {
 		name : 'Guitar',
 		imageSrc: './images/guitar.jpg',
@@ -41,4 +41,4 @@ let instruments = {
 			{name: 'Baritone tuning', notes : ['D3', 'G3', 'B3', 'E4']}
 		]
 	}
-}
+};

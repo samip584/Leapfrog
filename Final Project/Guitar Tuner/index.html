@@ -29,15 +29,34 @@
 		</div>
 
 		<div id="instrument-div">
-			<div id="instrument-options">
-				<!-- <div class = 'instrument'><img src="./images/guitar.jpg" alt="guitar"><div>Guitar</div></div>
-				<div class = 'instrument'><img src="./images/guitar.jpg" alt="Ukulele"><div>Ukulele</div></div> -->
+			<div class = 'option-container'>
+				<div class = "container-title">Select Instrument</div>
+				<div id="instrument-options">
+					<!-- <div class = 'instrument'><img src="./images/guitar.jpg" alt="guitar"><div>Guitar</div></div>
+					<div class = 'instrument'><img src="./images/guitar.jpg" alt="Ukulele"><div>Ukulele</div></div> -->
+				</div>
 			</div>
 		</div>
 
 		<div id="tuning-div">
-			<div id="tuning-options" class="dropdown-content">
+			<div class = 'option-container'>
+				<div class = "container-title">Select Tuning</div>
+				<div id="tuning-options" class="dropdown-content">
+				</div>
+				<div id = "add-tunings" title = "Addó custom tuning">+</div>
 			</div>
+		</div>
+
+		<div id="add-tuning-div">
+			<form action="javascript:void(0);" class = 'option-container'>
+				<div class = "container-title">Create Custom Tuning</div>
+				<label class = "Tuning-title">Tuning Name</label>
+				<input autocomplete="off" class = "title-input" placeholder="Tuning custom name">
+				<div id="note-options">
+				</div>
+				<button id = 'add-input-tuning'>Add Tuning</button>
+			</form>
+			
 		</div>
 
 		<div id = "welcome-page">
