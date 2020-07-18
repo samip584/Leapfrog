@@ -7,37 +7,77 @@
 		<link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/layout.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	</head>
 	<body>
 
 		<div class = "nav-wrapper">
 			<div class="nav-container clearfix center">
 				<div class="logo">Guitar Tuner</div>
-				<div class="option">Tuner</div>
+				<div class="option" id = 'metronome-button'>Metronome</div>
+				<div class="option" id = 'tuner-button'>Tuner</div>
 			</div>
 		</div>
 
-		<div class = "content-container center">
-			<canvas id = "canvas" height="270", width="500"></canvas>
-			<div id = "adjustment">Pluck a string</div>
-			<div class = "instrument-notes clearfix center">
+		<div class = "tuner-container">
+			<div class = "content-container center">
+				<canvas id = "canvas" height="270", width="500"></canvas>
+				<div id = "adjustment">Pluck a string</div>
+				<div class = "instrument-notes clearfix center">
+				</div>
+				<div class = "selection clearfix">
+					<button class = "instrument-options-button" id="instrument"></button>
+					<button class = "tuning-options-button" id="tuning"></button>
+				</div>
 			</div>
-			<div class = "selection clearfix">
-				<button class = "instrument-options-button" id="instrument"></button>
-				<button class = "tuning-options-button" id="tuning"></button>
+		</div>
+
+		<div class = "metronome-container">	
+			<div class="controls">
+				<div class = ' metronome-details clearfix center'>
+					<div class="bpm-minus"><img class = "bpm-change" src="images/minus.png" alt="reduce bpm" title="reduce bpm"></div>
+					<input type="text" value="60" class="bpm-input" /><div class = 'bpm-text'> BPM</div>
+					<div class="bpm-plus"><img  class = "bpm-change" src="images/plus.png" alt="increase bpm" title="increase bpm"></div>
+				</div>
+				<div class="counter"></div>
+				<label>
+					Beat: <input type="text" value="4" class="beats-no" /></label>
+				<div class="play-btn center" alt="play" title="play beat"><i class="fa fa-play"></i></div>
+			</div>
+			
+			<div class="metronome-options">
+				<div>Off Beat Pitch:</div> <input type="range" min="0" max="500" value="200" class="beat-range center" />
+				<div>Accent Pitch:</div> <input type="range" min="0" max="500" value="380" class="accent-range center" />
 			</div>
 		</div>
 
 		<div id="instrument-div">
-			<div id="instrument-options">
-				<!-- <div class = 'instrument'><img src="./images/guitar.jpg" alt="guitar"><div>Guitar</div></div>
-				<div class = 'instrument'><img src="./images/guitar.jpg" alt="Ukulele"><div>Ukulele</div></div> -->
+			<div class = 'option-container'>
+				<div class = "container-title">Select Instrument</div>
+				<div id="instrument-options">
+				</div>
 			</div>
 		</div>
 
 		<div id="tuning-div">
-			<div id="tuning-options" class="dropdown-content">
+			<div class = 'option-container'>
+				<div class = "container-title">Select Tuning</div>
+				<div id="tuning-options" class="dropdown-content">
+				</div>
+				<div id = "add-tunings" title = "Add custom tuning">+</div>
 			</div>
+		</div>
+
+		<div id="add-tuning-div">
+			<form action="javascript:void(0);" class = 'option-container'>
+				<div class = "container-title">Create Custom Tuning</div>
+				<label class = "Tuning-title">Tuning Name</label>
+				<input autocomplete="off" class = "title-input" placeholder="Tuning custom name">
+				<div id="note-options">
+				</div>
+				<button id = 'add-input-tuning'>Add Tuning</button>
+			</form>
+			
 		</div>
 
 		<div id = "welcome-page">
@@ -52,6 +92,7 @@
 		<script src="js/autoCorrelate.js"></script>
 		<script src="js/UiInteraction.js"></script>
 		<script src="js/initializer.js"></script>
+		<script src="js/metronome.js"></script>
 		<script src="js/engine.js"></script>
 
 	</body>

@@ -2,6 +2,7 @@ let angle =0;
 let noteDivs;
 let notes = [];
 let noteToTune;
+let mode = 'tuner';
 let note, notePitch;
 let adjustmentState;
 let currentTuning = 0;
@@ -10,59 +11,167 @@ let instrument = 'guitar';
 let tuningOptionDisplay = false;
 let instrumentOptionDisplay = false;
 
+const noteOptions = document.getElementById('note-options');
+const tunerButton = document.getElementById('tuner-button');
+const addtuningDiv = document.getElementById('add-tuning-div');
+const addtuningButton = document.getElementById('add-tunings');
 const tuningOptionsDiv = document.getElementById('tuning-div');
 const tuningOptions = document.getElementById('tuning-options');
+const TuningCustomName = document.querySelector('.title-input');
+const tunerContainer = document.querySelector('.tuner-container');
+const addInputTuning = document.getElementById('add-input-tuning');
+const metronomeButton = document.getElementById('metronome-button');
+const optionContainer = document.querySelector('.option-container');
 const instrumentNotes = document.querySelector('.instrument-notes');
 const instrumentOptionsDiv = document.getElementById('instrument-div');
 const instrumentOptions = document.getElementById('instrument-options');
+const metronomeContainer = document.querySelector('.metronome-container');
 const tuningOptionsButton = document.querySelector('.tuning-options-button');
 const instrumentButton = document.querySelector('.instrument-options-button');
 
+
 let previousNotes=[]
 
-instrumentOptionsDiv.addEventListener('click', function(){
-  instrumentOptionsDiv.style.display = 'none';
+instrumentOptionsDiv.addEventListener('click', function(e){
+  if(e.target == instrumentOptionsDiv)
+    instrumentOptionsDiv.style.display = 'none';
 })
 
-
-tuningOptionsDiv.addEventListener('click', function(){
-  tuningOptionsDiv.style.display = 'none';
+tunerButton.addEventListener('click', function(){
+  mode = 'tuner';
+  tunerContainer.style.display = 'block';
+  metronomeContainer.style.display = 'none';
+  playButton.innerHTML = 'Play';
+  window.clearInterval(timer);
 })
 
+metronomeButton.addEventListener('click', function(){
+  mode = 'metronome';
+  metronomeContainer.style.display = 'block';
+  tunerContainer.style.display = 'none';
+})
+
+tuningOptionsDiv.addEventListener('click', function(e){
+  if(e.target == tuningOptionsDiv){
+    tuningOptionsDiv.style.display = 'none';
+    instrumentOptionDisplay = false;
+  }
+})
+addtuningDiv.addEventListener('click', function(e){
+  if(e.target == addtuningDiv){
+    addtuningDiv.style.display = 'none';
+  }
+})
+
+addtuningButton.addEventListener('click', function(){
+  noteOptions.innerText = '';
+  for(i= instruments[instrument].tuning[0].notes.length; i > 0 ; i--){
+    let noteOption = document.createElement('input');
+    noteOption.setAttribute('autocomplete', 'off');
+    noteOption.setAttribute('placeholder', i);
+    noteOption.classList.add('input-note');
+    noteOption.addEventListener('focusout', function(e){
+      if (!noteStrings.includes(e.target.value.toUpperCase())){
+        e.target.style.backgroundColor = '#E24242';
+        readyToAdd = false;
+      }
+      else{
+        e.target.style.backgroundColor = '#ef8354';
+        readyToAdd = true;
+      }
+    })
+    tuningOptionsDiv.style.display = 'none';
+    instrumentOptionDisplay = false;
+    noteOptions.appendChild(noteOption)
+  }
+  addtuningDiv.style.display = 'block';
+})
+
+addInputTuning.addEventListener('click', function(){
+  let readyToAdd = true;
+  let tuning = {name: '', notes: []}
+  if(TuningCustomName.value){
+    TuningCustomName.style.border = '1px solid white'
+    tuning['name'] = TuningCustomName.value;
+    let inputtedNotes = noteOptions.querySelectorAll('.input-note');
+    inputtedNotes.forEach(function(inputtedNote){
+      if(inputtedNote.value && inputtedNote.style.backgroundColor === 'rgb(239, 131, 84)')
+        tuning.notes.push(inputtedNote.value.toUpperCase());
+      else
+      readyToAdd = false;
+    })
+    if(readyToAdd){
+      instruments[instrument].tuning.push(tuning);
+      localStorage.setItem('instruments',  JSON.stringify(instruments));
+      currentTuning = instruments[instrument].tuning.length - 1;
+      addtuningDiv.style.display = 'none';
+      changeTuningOptions();
+      changeTuning();
+      tuningOptionDisplay = false;
+      tuningOptionsDiv.style.display = 'block';
+      optionContainer.style.top = 'calc(50% - '+optionContainer.clientHeight/2+'px)'
+    }
+  }
+  else{
+    TuningCustomName.style.border = '1px solid #E24242'
+  }
+})
 
 
 instrumentButton.addEventListener('click', function(){
-  if (instrumentOptionDisplay){
-    instrumentOptionDisplay = false;
-    instrumentOptionsDiv.style.display = 'none';
-  }
-  else
+  if(!instrumentOptionDisplay)
   {
-    instrumentOptionDisplay = true;
+    instrumentOptionDisplay = false;
     instrumentOptionsDiv.style.display = 'block';
-    instrumentOptions.style.top = 'calc(50% - '+instrumentOptions.clientHeight/2+'px)';
+    optionContainer.style.top = 'calc(50% - '+optionContainer.clientHeight/2+'px)'
   }
 })
 
 tuningOptionsButton.addEventListener('click', function(){
-  if (tuningOptionDisplay){
-    tuningOptionDisplay = false;
-    tuningOptionsDiv.style.display = 'none';
-  }
-  else
+  if (!tuningOptionDisplay)
   {
-    tuningOptionDisplay = true;
+    tuningOptionDisplay = false;
     tuningOptionsDiv.style.display = 'block';
-    tuningOptions.style.top = 'calc(50% - '+tuningOptions.clientHeight/2+'px)'
+    optionContainer.style.top = 'calc(50% - '+optionContainer.clientHeight/2+'px)'
   }
 })
 
+function changeInstrumentOptions(){
+  instrumentOptions.innerText = '';
+  for (let option in instruments){
+    let instrumentOption = document.createElement('div');
+    instrumentOption.classList.add('instrument');
+    let instrumentImgHolder = document.createElement('div');
+    instrumentImgHolder.classList.add('instrument-img-holder');
+    let instrumentImg = document.createElement('img');
+    instrumentImg.classList.add('instrument-option-img');
+    instrumentImg.src = instruments[option].imageSrc;
+    instrumentImg.alt = instruments[option].name;
+    instrumentImgHolder.appendChild(instrumentImg);
+    instrumentOption.appendChild(instrumentImgHolder);
+    let instrumentName = document.createElement('div');
+    instrumentName.innerHTML = instruments[option].name;
+    instrumentOption.appendChild(instrumentName);
+    instrumentOptions.appendChild(instrumentOption);
+
+    instrumentOption.addEventListener('click', function(){
+      instrument = option;
+      instrumentOptionsDiv.style.display = 'none';
+      currentTuning = 0;
+      changeInstrumentOptions();
+      changeTuningOptions();
+      changeTuning();
+    })
+  }
+}
+
 function changeTuningOptions(){
-  currentTuning = 0;
   tuningOptions.innerHTML = '';
   instruments[instrument].tuning.forEach(function(option){
     let dropdownOption = document.createElement('div');
     dropdownOption.classList.add('dropdown-option');
+    if (instruments[instrument].tuning[currentTuning].name === option.name)
+      dropdownOption.classList.add('dropdown-active-option');
     let htmlContent = option.name + '<br>';
     for(let i=0; i<option.notes.length - 1; i++)
       htmlContent += option.notes[i] + ' | ';
@@ -71,7 +180,10 @@ function changeTuningOptions(){
 
     dropdownOption.addEventListener('click', function(){
       currentTuning = instruments[instrument].tuning.indexOf(option);
+      
+      instrumentOptionDisplay = false;
       tuningOptionsDiv.style.display = 'none';
+      changeTuningOptions();
       changeTuning();
     })
     tuningOptions.appendChild(dropdownOption);
@@ -139,7 +251,7 @@ function changeTuning(){
     noteDivs[note] = instrumentNote;
     instrumentNotes.appendChild(instrumentNote);
     instrumentNotesWidth += 80;
-  })
+  }) 
   
   instrumentButton.textContent = '';
   let instrumentImg = document.createElement('img')
@@ -160,6 +272,5 @@ function resetNoteDivs(){
 
 function showNoteToTune(color){
   let toTunediv = noteDivs[noteToTune];
-  console.log(toTunediv)
   toTunediv.style.backgroundColor = color;
 }

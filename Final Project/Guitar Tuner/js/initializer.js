@@ -7,32 +7,13 @@ programStarter.addEventListener('click', function(event){
   audioContext = new AudioContext();
   MAX_SIZE = Math.max(4,Math.floor(audioContext.sampleRate/5000));	// corresponds to a 5kHz signals
 
-  for (let option in instruments){
-    let instrumentOption = document.createElement('div');
-    instrumentOption.classList.add('instrument');
-    let instrumentImg = document.createElement('img')
-    instrumentImg.classList.add('instrument-option-img');
-    instrumentImg.src = instruments[option].imageSrc;
-    instrumentImg.alt = instruments[option].name;
-    instrumentOption.appendChild(instrumentImg);
-    let instrumentName = document.createElement('div');
-    instrumentName.innerHTML = instruments[option].name;
-    instrumentOption.appendChild(instrumentName);
-    instrumentOptions.appendChild(instrumentOption);
-
-    instrumentOption.addEventListener('click', function(){
-      instrument = option;
-      instrumentOptionsDiv.style.display = 'none';
-      changeTuningOptions();
-      changeTuning();
-    })
-    
-  }
+  changeInstrumentOptions();
 
   changeTuningOptions();
  
   changeTuning();
   
+  updateCounter();
   audioContext.resume();
 
   tuningOptionsButton.innerHTML = instruments[instrument].tuning[0].name;

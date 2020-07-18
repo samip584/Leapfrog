@@ -2,9 +2,7 @@ body {
   font: 14pt 'roboto', sans-serif;
   outline: none;
 }
-body:focus{
-  outline: none;
-}
+
 
 .nav-container{
   width: calc(100% - 30px);
@@ -40,9 +38,18 @@ body:focus{
   width: 100%;
   position: absolute;
   top : 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.4);
 }
-
+.option-container{
+  width: 420px;
+  max-height: 500px;
+  background-color: #4f5d75;
+  position: absolute;
+  top: calc(50% - 200px);
+  left: calc(50% - 210px);
+  text-align: center;
+  border-radius: 0 60px 0 60px;
+}
 
 .instrument-note{
   float: left;
@@ -71,8 +78,8 @@ body:focus{
   background-color: white;
   font-size: 18px;
   font-family: 'Roboto';
-  width: 104px;
-  height: 104px;
+  width: 108px;
+  height: 110px;
   border: none;
   cursor: pointer;
   border-radius: 50%;
@@ -89,7 +96,7 @@ body:focus{
 }
 
 .instrument-options-button img:hover{
-  margin-top: 2.5px;
+  margin-top: 4px;
   border-radius: 50%;
   width: 92px;
   height: 92px;
@@ -109,31 +116,123 @@ body:focus{
   padding: 8px 0;
   margin-top: 30px;
 }
+#tuning-options{
+  max-height : 255px;
+  overflow-y: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+#tuning-options::-webkit-scrollbar {
+  display: none;
+}
+
+
+.container-title{
+  margin-top: 40px;
+  margin-bottom: 30px;  
+  color: white;
+  font-size: 25px;
+}
 
 .dropdown-content {
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  margin-left: 70px;
-  position: absolute;
-  left: calc(50% - 250px);
-  background-color: rgba(255, 255, 255);
-  width: 370px;
-  box-shadow: 0px 8px 16px 0px rgba(230, 217, 217, 0.2);
-  z-index: 1;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 35px;
 }
 
 .dropdown-content .dropdown-option {
-  color: #838383;
+  color: white;
   padding: 12px 16px;
   text-decoration: none;
   font-size: 18px;
   text-align: center;
   display: block;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  border: 2px solid white;
   cursor: pointer;
+  margin-bottom: 5px;
 }
 
-.dropdown .dropdown-option:hover {
-  background-color: #ddd;
+.dropdown-option:hover {
+  color: #4f5d75;
+  background-color: white;
+  transition: 0.5s;
+}
+
+.dropdown-active-option{
+  color: #4f5d75 !important;
+  background-color: white;
+}
+
+#add-tuning-div{
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+#add-tunings{
+  background-color: white;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  color: #4f5d75;
+  font-size: 50px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#add-tunings:hover{
+  color: white;
+  background-color: #2D3142;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.Tuning-title{
+  color: white;
+  display: block;
+  margin-left: 40px;
+  text-align: left;
+}
+.title-input{
+  height: 40px;
+  background-color: transparent;
+  border: 1px solid white;
+  width: calc(100% - 92px);
+  margin: 10px 40px;
+  padding-left: 12px;
+  color: white;
+  font-size: 18px;
+}
+#note-options{
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+#add-input-tuning{
+  height: 40px;
+  border: none;
+  width: 140px;
+  margin-bottom: 40px;
+  font-size: 18px;
+}
+#add-input-tuning:hover{
+  color: white;
+  background-color: #2D3142;
+  transition: 0.4s;
+}
+
+.input-note{
+  background-color: #ef8354;
+  border: none;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  color: white;
+  text-align: center;
+  font-size: 22px;
+  margin: 0 4px;
 }
 
 #instrument-div{
@@ -142,33 +241,42 @@ body:focus{
   width: 100%;
   position: absolute;
   top : 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 #instrument-options{
-  color:#838383;
-  margin-left: 70px;
-  position: absolute;
-  left: calc(50% - 250px);
-  top: calc(50% - 100px);
-  background-color: rgba(255, 255, 255);
-  width: 370px;
-  box-shadow: 0px 8px 16px 0px rgba(230, 217, 217, 0.2);
-  z-index: 1;
+  color:white;
   text-align: center;
 }
 
 .instrument{
   display: inline-block;
-  margin: 30px;
+  margin: 10px 30px;
+  margin-bottom: 40px;
 }
+
 .instrument:hover{
   opacity: 0.9;
   cursor: pointer;
 }
+.instrument-img-holder{
+  height: 98px;
+  width: 104px;
+  border-radius: 50%;
+  padding-top: 7px;
+  margin-bottom: 5px;
+}
+
+
+.instrument-img-holder:hover{
+  height: 97px;
+  width: 102px;
+  padding-top: 6px;
+  border: 1px solid white;
+}
 #instrument-options img{
-  height: 100px;
-  width: 100px;
+  height: 90px;
+  width: 90px;
   border-radius: 50%;
 }
 
@@ -222,6 +330,98 @@ body:focus{
   background-color: #2D3142;
   transition: 0.4s;
 }
+
+.metronome-container{
+  display: none;
+}
+
+.counter {
+  width: 100%;
+  padding-bottom: 10px;
+  background: lighten(#333, 5%);
+  text-align: center;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  margin: 25px 10px 10px 10px;
+  background: #FFF;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.active-dot { 
+  background-color: #2D3142; 
+}
+.playing{
+  transform: translateY(-10px);
+  background-color: #F75454;
+}
+.bpm-change{
+  height: 30px;
+  width: 30px;
+  float: left;
+  margin: 0 15px;
+  margin-top: 100px;
+}
+.bpm-input{
+  background-color: transparent;
+  border: none;
+  width: 2ch;
+  font-size: 130px;
+  color: white;
+  float: left;
+}
+.bpm-text{
+  float: left;
+  margin-top: 102px;
+  font-size: 30px;
+}
+.controls{
+  text-align: center;
+  color: white;
+  font-size: 17px;
+}
+.metronome-details{
+  width: 326px;
+  margin-top: 80px;
+}
+.beats-no{
+  font-size: 17px;
+  height: 28px;
+  width: 50px;
+  text-align: center;
+}
+.play-btn{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: block;
+  border-radius: 50%;
+  border: none;
+  height: 55px;
+  width: 70px;
+  padding-top: 15px;
+  background-color: white;
+  font-size: 35px;
+  color: #2D3142;
+}
+.play-btn:hover{
+  background-color: #2D3142;
+  color: white;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.metronome-options{
+  text-align: center;
+  color: white;
+}
+.metronome-options label{
+  display: block;
+}
+
 @media only screen and (min-width: 560px){
   .nav-container{
     width: calc(100% - 30px);
@@ -243,6 +443,12 @@ body:focus{
     padding: 4px 0;
     border-radius: 15px;
     margin: 15px 0;
+    margin-left: 15px;
+  }
+
+  .option:hover{
+    cursor: pointer;
+    text-decoration: underline;
   }
 
   .content-container{
@@ -262,7 +468,7 @@ body:focus{
     width: 100%;
     position: absolute;
     top : 0;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.4);
   }
 
 
@@ -288,35 +494,6 @@ body:focus{
   
   }
 
-  .instrument-options-button{
-    float: left;
-    background-color: white;
-    font-size: 18px;
-    font-family: 'Roboto';
-    width: 104px;
-    height: 104px;
-    border: none;
-    cursor: pointer;
-    border-radius: 50%;
-    border: 3px dashed #2AC70A;
-    background-color: transparent;
-  }
-
-  .instrument-options-button img{
-    margin-top: 4px;
-    border-radius: 50%;
-
-    width: 90px;
-    height: 90px;
-  }
-
-  .instrument-options-button img:hover{
-    margin-top: 2.5px;
-    border-radius: 50%;
-    width: 92px;
-    height: 92px;
-  }
-
   .tuning-options-button{
     margin-left: 20px;
     float: right;
@@ -332,67 +509,6 @@ body:focus{
     margin-top: 30px;
   }
 
-  .dropdown-content {
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    margin-left: 70px;
-    position: absolute;
-    left: calc(50% - 250px);
-    background-color: rgba(255, 255, 255);
-    width: 370px;
-    box-shadow: 0px 8px 16px 0px rgba(230, 217, 217, 0.2);
-    z-index: 1;
-  }
-
-  .dropdown-content .dropdown-option {
-    color: #838383;
-    padding: 12px 16px;
-    text-decoration: none;
-    font-size: 18px;
-    text-align: center;
-    display: block;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-  }
-
-  .dropdown .dropdown-option:hover {
-    background-color: #ddd;
-  }
-
-  #instrument-div{
-    display: none;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top : 0;
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-
-  #instrument-options{
-    color:#838383;
-    margin-left: 70px;
-    position: absolute;
-    left: calc(50% - 250px);
-    top: calc(50% - 100px);
-    background-color: rgba(255, 255, 255);
-    width: 370px;
-    box-shadow: 0px 8px 16px 0px rgba(230, 217, 217, 0.2);
-    z-index: 1;
-    text-align: center;
-  }
-
-  .instrument{
-    display: inline-block;
-    margin: 30px;
-  }
-  .instrument:hover{
-    opacity: 0.9;
-    cursor: pointer;
-  }
-  #instrument-options img{
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-  }
 
   #welcome-page{
     position: absolute;
