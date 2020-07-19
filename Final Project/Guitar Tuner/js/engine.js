@@ -123,14 +123,21 @@ function updatePitch( ) {
 			tick = 0;
 			
 			let Note = getNote(notes);
+			if(Note.pitch > 1000){
+				if(previousNotes[previousNotes.length - 1])
+					Note = previousNotes[previousNotes.length - 1]
+				else
+					Note.pitch = 1000;
+			}
 			previousNotes.push(Note);
 			if (previousNotes.length > 5){
 				previousNotes.shift();
 				for (let i = 1; i < 5; i++)
-					if (Note.note <  previousNotes[previousNotes.length - i].note - 1 || Note.note >  previousNotes[previousNotes.length - i].note + 1){
+					if (Note.note <  previousNotes[previousNotes.length - i].note - 1 || Note.note >  previousNotes[previousNotes.length - i].note + 1 ){
 						Note =  getNote(previousNotes);	
 					}
 			}
+
 			getNoteToTune(Note);
 			showNoteToTune("#2AC70A");
 			correctionAction(Note.pitch, Note.note)

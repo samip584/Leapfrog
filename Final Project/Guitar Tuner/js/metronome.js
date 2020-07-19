@@ -78,7 +78,6 @@ accentRange.addEventListener('change', function(){
 })
 
 bpmInput.addEventListener('change',function(){
-  console.log('ok')
   noteCount = 0;
   bpmInput.value = parseInt(bpmInput.value , 10);
   resizeBpmInput();
