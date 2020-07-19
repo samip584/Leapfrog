@@ -194,6 +194,7 @@ function changeTuningOptions(){
 function drawBackGround(){
   ctx.imageSmoothingQuality = 'high';
   ctx.fillStyle = "#ffffff";
+  //draw Perfect pointer
   ctx.moveTo(245, 65);
   ctx.lineTo(255, 65);
   ctx.lineTo(250, 70);
@@ -202,6 +203,8 @@ function drawBackGround(){
   ctx.fillStyle = "#2AC70A";
   ctx.font = "14px Arial";
   ctx.fillText("Perfect", 227, 58);
+
+  //draw semi circle
   ctx.fillStyle = "#ffffff";
   ctx.beginPath();
   ctx.arc(250, 270, 200, Math.PI, 2 * Math.PI);
