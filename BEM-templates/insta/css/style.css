@@ -3,11 +3,16 @@
   content: "";
   display: table;
 }
+a{
+  text-decoration: none;
+  color: black;
+}
 .post__image{
   height: 600px;
 }
 .user{
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px 15px;
 }
 .user__photo{
   height: 50px;
@@ -28,4 +33,15 @@
 }
 .right{
   float: right;
+}
+
+.user__name, .post__option{
+  margin-top: 16px;
+  margin-left: 8px;
+  font-weight: bold;
+}
+ .user_follow, .dot, .user__isfollowing{
+  margin-top: 8px;
+  margin-left: 3px;
+  font-weight: bold;
 }
