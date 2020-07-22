@@ -7,6 +7,11 @@ a{
   text-decoration: none;
   color: black;
 }
+.post{
+  position: absolute;
+  left : calc(50% - 450px);
+  background-color: white;
+}
 .post__image{
   height: 600px;
 }
@@ -23,10 +28,11 @@ a{
 }
 .post__comments{
   margin: 0;
-  padding: 0;
+  padding: 10px 15px;
+
 }
 .post__comment-content{
-  width: 240px;
+  width: 210px;
 }
 .left{
   float: left;
@@ -44,4 +50,11 @@ a{
   margin-top: 8px;
   margin-left: 3px;
   font-weight: bold;
+}
+.wrapper{
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
 }
