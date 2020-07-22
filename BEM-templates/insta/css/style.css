@@ -1,0 +1,31 @@
+.clearfix::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.post__image{
+  height: 600px;
+}
+.user{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.user__photo{
+  height: 50px;
+  border-radius: 50%;
+}
+.post_text-content{
+  width: 300px;
+}
+.post__comments{
+  margin: 0;
+  padding: 0;
+}
+.post__comment-content{
+  width: 240px;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
