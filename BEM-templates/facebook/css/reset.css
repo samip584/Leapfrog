@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.clearfix::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+body {
+  font-family: Arial;
+  background-color: #e9ebee;
+}
+
+a,
+a:active,
+a:visited {
+  color: inherit;
+  text-decoration: inherit;
+}
+img{
+  background-color: transparent;
+  height: 16px;
+}
