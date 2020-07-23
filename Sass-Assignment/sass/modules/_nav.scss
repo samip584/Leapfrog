@@ -1,0 +1,30 @@
+.nav{
+  color: #506a85;
+  font-size: 15px;
+  font-weight: 700;
+
+  .nav__container{
+    width: 1170px;
+    padding: 28px 0;
+  }
+  .nav__logo{
+    float: left;
+    margin-right: 90px;
+  }
+  a{
+    color: #506a85;
+  }
+  ul{
+    margin-top: 10px;
+    float: left;
+  }
+  li{
+    margin-right: 44px;
+    display: inline-block;  
+  }
+  i{
+    margin-top: 10px;
+    float: right;
+    margin-right: 23px;
+  }
+}

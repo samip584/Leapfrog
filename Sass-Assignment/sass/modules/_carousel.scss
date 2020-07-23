@@ -1,0 +1,32 @@
+.carousel{
+  width: 100%;
+  background-image: url(../../images/image.png);
+  height: 880px;
+  text-align: center;
+
+  h1{
+    color: white;
+    font-size: 78px;
+    padding-top: 275px;
+    text-align: center;
+  }
+  span{
+    width: 970px;
+    display: block;
+    font-size: 24px;
+    margin-top: 6px;
+    color: #a3b1bf;
+    text-align: center;
+  }
+  .carousel_button{
+    border: none;
+    color: white;
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 63px;
+    padding: 25px 70px;
+    border-radius: 4px;
+    background-color: #00bc9c;
+  }
+}

@@ -1,0 +1,22 @@
+.contact{
+  background-color: #f5f7fa;
+  padding: 14px 0;
+  font-size: 12px;
+
+  .contact__container{
+    width: 1170px;
+  }
+  a{
+    color: #506a85;
+  }
+  li{
+    margin-right: 17px;
+    display: inline-block;
+  }
+  li:last-child{
+    margin-right: 0;
+  }
+  span{
+    margin: 10px;
+  }
+}
