@@ -1,0 +1,37 @@
+.footer{
+  color: #707e8c;
+  background-color: #283645;
+  
+  @include e(container){
+    font-size: 14px;
+    width: 100%;
+    padding: 38px 15px;
+    @include mq(xl){
+      width: 1170px;
+    }
+  }
+  span{
+    text-align: center;
+    display: block;
+    @include mq(md){
+      float: left;
+    }
+    
+  }
+  ul{
+    margin-top: 20px;
+    text-align: center;
+    @include mq(md){
+      margin-top: 0px;
+      float: right;
+    }
+  }
+  li{
+    font-size: 14px;
+    margin-left: 10px;
+    display: inline-block;
+  }
+  a{
+    color: #707e8c;
+  }
+}

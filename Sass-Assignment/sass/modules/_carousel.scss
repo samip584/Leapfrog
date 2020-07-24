@@ -1,32 +1,60 @@
 .carousel{
   width: 100%;
   background-image: url(../../images/image.png);
-  height: 880px;
+  height: 420px;
   text-align: center;
+  @include mq(md){
+    height: 640px;
+  }
+  @include mq(lg){
+    height: 880px;
+  }
 
   h1{
     color: white;
-    font-size: 78px;
-    padding-top: 275px;
     text-align: center;
+    font-size: 46px;
+    padding-top:60px;
+    @include mq(md){
+      font-size: 60px;
+      padding-top: 175px;
+    }
+    @include mq(lg){
+      font-size: 78px;
+      padding-top: 275px;
+    }
   }
   span{
-    width: 970px;
+    width: calc(100% - 30px);
+    padding: 0 15px;
     display: block;
-    font-size: 24px;
+    font-size: 18px;
     margin-top: 6px;
     color: #a3b1bf;
     text-align: center;
+    @include mq(md){
+      font-size: 24px;
+    }
+    @include mq(lg){
+      width: 970px;
+      font-size: 24px;
+    }
   }
-  .carousel_button{
+  @include e(button){
     border: none;
     color: white;
     display: block;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 700;
-    margin-top: 63px;
-    padding: 25px 70px;
+    margin-top: 40px;
+    padding: 18px 40px;
     border-radius: 4px;
     background-color: #00bc9c;
+    @include mq(md){
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 63px;
+      padding: 25px 70px;
+    }
   }
 }

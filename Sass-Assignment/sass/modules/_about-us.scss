@@ -1,36 +1,78 @@
 .about-us{
   color: #506a85;
-  height: 672px;
+  padding-bottom: 50px;
+  @include mq(lg){
+    height: 672px;
+    padding-bottom: 0px;
+  }
   h2{
-    font-size: 44px;
+    font-size: 30px;
     text-align: center;
-    padding-top: 120px;
+    padding-top: 55px;
+    @include mq(lg){
+      font-size: 44px;
+      padding-top: 120px;
+    }
   }
   h3{
     font-size: 26px;
   }
-  .about-us__description{
-    width: 800px;
+  @include e(description){
+    width: calc(100% - 30px);
     display: block;
-    font-size: 22px;
+    font-size: 18px;
     margin-top: 30px;
     text-align: center;
+    @include mq(lg){
+      width: 800px;
+      font-size: 22px;
+      margin-top: 20px;
+    }
   }
   ul{
-    width: 1100px;
-    margin-top: 78px;
+    width: calc(100% - 30px);
+    padding: 0 15px;
+    margin-top: 50px;
+    @include mq(md){
+      width: calc(100% - 30px);
+      margin-top: 68px;
+
+    }
+    @include mq(xl){
+      width: 1200px;
+      margin-top: 78px;
+    }
   }
   li{
-    display: inline-block;
+      display: block;
+      margin-bottom: 20px;
+      width: 100%;
+      @include mq(md){
+        width: calc(33.33% - 2.1px);
+        display: inline-block;
+        margin-bottom: 0px;
+      }
+      @include mq(xl){
+        width: 387.8px;
+        display: inline-block;
+        margin-bottom: 0px;
+      }
   }
   img{
     float: left;
   }
-  .about-us__feature-description{
-    float: left;
-    width: 270px;
+  @include e(feature-description){
+    float: right;
     margin: 0 20px;
+    width: calc(100% - 101px);
+    @include mq(md){
+      float: left;
+    }
+    @include mq(xl){
+      width: 270px;
+    }
   }
+  
   span{
     font-size: 16px; 
   }

@@ -1,18 +1,30 @@
 .get-in-touch{
   height: 483px;
   color: #506a85;
+  @include mq(lg){
+    height: 483px;
+  }
 
   h2{
-    font-size: 44px;
+    font-size: 30px;
     text-align: center;
-    padding-top: 96px;
+    padding-top: 46px;
+    @include mq(lg){
+      font-size: 44px;
+      padding-top: 96px;
+    }
   }
   span{
-    width: 800px;
+    width: calc(100% - 30px);
     display: block;
-    font-size: 22px;
+    font-size: 18px;
     margin-top: 22px;
     text-align: center;
+    @include mq(lg){
+      width: 800px;
+      font-size: 22px;
+      margin-top: 22px;
+    }
   }
   button{
     height: 48px;

@@ -1,21 +1,48 @@
 .works{
   color: #506a85;
-  height: 1270px;
+  padding-bottom: 60px;
   background-color: #f2f5f7;
+  @include mq(xl){
+    padding-bottom: 0px;
+    height: 1270px;
+  }
 
-  .works__container{
-    width: 1170px;
+  @include e(container){
+    width: 100%;
+    padding: 0 15px;
+    @include mq(xl){
+      width: 1200px;
+    }
   }
   h2{
-    font-size: 44px;
+    font-size: 30px;
     text-align: center;
-    padding-top: 124px;
+    padding-top: 60px;
+    @include mq(lg){
+      font-size: 44px;
+      padding-top: 124px;
+    }
   }
   h3{
     font-size: 20px;
     text-align: center;
     margin-top: 30px;
   }
+
+  @include e(description){
+    display: block;
+    padding: 0 15px;
+    font-size: 18px;
+    margin-top: 18px;
+    width: calc(100% - 30px);
+    text-align: center;
+    @include mq(lg){
+      width: 800px;
+      font-size: 22px;
+      margin-top: 20px;
+    }
+  }
+
   span{
     display: block;
     font-size: 14px;
@@ -23,25 +50,39 @@
     margin-bottom: 31px;
     text-align: center;
   }
-  .works__description{
-    width: 800px;
-    display: block;
-    font-size: 22px;
-    margin-top: 20px;
-    text-align: center;
-  }
+  
   ul{
     margin-top: 80px;
   }
-  .work__display-small{
-    margin-right: 26.5px;
+  
+  @include e(display-small){
+    display: block;
+    margin-right: 15px;
+    width: calc(50% - 10px);
     display: inline-block;
+    margin-bottom: 15px;
+    @include mq(md){
+      display: inline-block;
+      margin-bottom: 0px;
+      width: calc(25% - 23px);
+      margin-right: 26.5px;
+    }
   }
+  li:nth-child(2){
+    margin-right: 0px !important;
+    @include mq(md){
+      margin-right: 26.5px!important;
+    }
+  }
+
   li:last-child{
     margin-right: 0px;
   }
-  .work__display-big{
+  @include e(display-big){
     margin-top: 80px;
     background-color: white;
+    @include mq(md){
+      width: calc(50% - 15px);
+    }
   }
 }

@@ -3,28 +3,54 @@
   font-size: 15px;
   font-weight: 700;
 
-  .nav__container{
-    width: 1170px;
-    padding: 28px 0;
+  @include e(container){
+    width: 100%;
+    padding: 28px 15px;
+    @include mq(xl){
+      width: 1170px;
+    }
   }
-  .nav__logo{
+  @include e(logo){
     float: left;
-    margin-right: 90px;
+    margin-right: 3.02%;
+    @include mq(xl){
+      margin-right: 90px;
+    }
   }
   a{
     color: #506a85;
   }
   ul{
+    display: none;
     margin-top: 10px;
     float: left;
+    @include mq(lg){
+      display: block;
+    }
   }
   li{
     margin-right: 44px;
     display: inline-block;  
   }
-  i{
+  button{
+    background-color: transparent;
+    border: none;
+    color: #506a85;
     margin-top: 10px;
     float: right;
     margin-right: 23px;
+  }
+  @include e(search-btn) {
+    display: none;
+
+    @include mq(lg){
+      display: block;
+    }
+  }
+  @include e(burger-btn) {
+    display: block;
+    @include mq(lg){
+      display: none;
+    }
   }
 }

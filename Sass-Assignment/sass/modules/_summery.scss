@@ -1,0 +1,45 @@
+.summary{
+  background-color: #2f4052;
+  padding-bottom: 60px;
+  @include mq(xl){
+    padding-bottom: 0px;
+    height: 364px;
+  }
+  
+
+  @include e(container) {
+    width: calc(100% - 30px);
+    padding: 0 15px;
+    @include mq(xl){
+      width: 1170px;
+    }
+  }
+
+  h3{
+    color: white;
+    margin-top: 70px;
+    margin-bottom: 22px;
+  }
+
+  @include e(logo) {
+    margin-bottom: 20px;
+  }
+
+  img{
+    display: block;
+  }
+
+  span{
+    color: #a3b1bf;
+  }
+  
+  @include e(block) {
+    float: left;
+    width: 270px;
+    margin: 0 15px;
+  }
+
+  li{
+    display: inline-block;
+  }
+}

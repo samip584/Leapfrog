@@ -1,10 +1,13 @@
 .contact{
   background-color: #f5f7fa;
-  padding: 14px 0;
   font-size: 12px;
 
-  .contact__container{
-    width: 1170px;
+  @include e(container) {
+    padding: 14px 15px;
+    width: 100%;
+    @include mq(xl){
+      width: 1170px;
+    }
   }
   a{
     color: #506a85;
