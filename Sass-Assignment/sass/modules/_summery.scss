@@ -41,5 +41,8 @@
 
   li{
     display: inline-block;
+    &:hover{
+      cursor: pointer;
+    }
   }
 }

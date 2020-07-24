@@ -1,8 +1,9 @@
 .get-in-touch{
-  height: 483px;
+  padding-bottom: 50px;
   color: #506a85;
   @include mq(lg){
     height: 483px;
+    padding-bottom: 0px;
   }
 
   h2{
@@ -36,6 +37,12 @@
     font-weight: 700;
     text-align: center;
     border-radius: 4px;
+    text-transform: uppercase;
     background-color: #00bc9c;
+    
+    &:hover{
+      cursor: pointer;
+      background-color: #00bc50;
+    }
   }
 }

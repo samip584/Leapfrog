@@ -702,7 +702,8 @@ option {
       .nav__logo {
         margin-right: 90px; } }
   .nav a {
-    color: #506a85; }
+    color: #506a85;
+    text-transform: uppercase; }
   .nav ul {
     display: none;
     margin-top: 10px;
@@ -789,6 +790,8 @@ option {
         margin-bottom: 0px;
         width: calc(25% - 23px);
         margin-right: 26.5px; } }
+    .works__display-small:hover {
+      cursor: pointer; }
   .works li:nth-child(2) {
     margin-right: 0px !important; }
     @media (min-width: 768px) {
@@ -802,6 +805,8 @@ option {
     @media (min-width: 768px) {
       .works__display-big {
         width: calc(50% - 15px); } }
+    .works__display-big:hover {
+      cursor: pointer; }
 
 .footer {
   color: #707e8c;
@@ -893,6 +898,8 @@ option {
     margin: 0 15px; }
   .summary li {
     display: inline-block; }
+    .summary li:hover {
+      cursor: pointer; }
 
 .carousel {
   width: 100%;
@@ -909,7 +916,8 @@ option {
     color: white;
     text-align: center;
     font-size: 46px;
-    padding-top: 60px; }
+    padding-top: 60px;
+    text-transform: uppercase; }
     @media (min-width: 768px) {
       .carousel h1 {
         font-size: 60px;
@@ -942,6 +950,7 @@ option {
     margin-top: 40px;
     padding: 18px 40px;
     border-radius: 4px;
+    text-transform: uppercase;
     background-color: #00bc9c; }
     @media (min-width: 768px) {
       .carousel__button {
@@ -949,6 +958,9 @@ option {
         font-weight: 700;
         margin-top: 63px;
         padding: 25px 70px; } }
+    .carousel__button:hover {
+      cursor: pointer;
+      background-color: #00bc50; }
 
 .about-us {
   color: #506a85;
@@ -1020,11 +1032,12 @@ option {
     font-size: 16px; }
 
 .get-in-touch {
-  height: 483px;
+  padding-bottom: 50px;
   color: #506a85; }
   @media (min-width: 992px) {
     .get-in-touch {
-      height: 483px; } }
+      height: 483px;
+      padding-bottom: 0px; } }
   .get-in-touch h2 {
     font-size: 30px;
     text-align: center;
@@ -1054,7 +1067,11 @@ option {
     font-weight: 700;
     text-align: center;
     border-radius: 4px;
+    text-transform: uppercase;
     background-color: #00bc9c; }
+    .get-in-touch button:hover {
+      cursor: pointer;
+      background-color: #00bc50; }
 
 @media (min-width: 576px) {
   .is-collapsed-mobile {

@@ -67,6 +67,9 @@
       width: calc(25% - 23px);
       margin-right: 26.5px;
     }
+    &:hover{
+      cursor: pointer;
+    }
   }
   li:nth-child(2){
     margin-right: 0px !important;
@@ -83,6 +86,9 @@
     background-color: white;
     @include mq(md){
       width: calc(50% - 15px);
+    }
+    &:hover{
+      cursor: pointer;
     }
   }
 }
