@@ -16,6 +16,20 @@
     margin-right: 17px;
     display: inline-block;
   }
+  @include e(list){
+    text-align: center;
+    @include mq(md){
+      float: left;
+    }
+  }
+  @include e(list-socials){
+    text-align: center;
+    margin-top: 15px;
+    @include mq(md){
+      margin-top: 0px;
+      float: right;
+    }
+  }
   li:last-child{
     margin-right: 0;
   }
