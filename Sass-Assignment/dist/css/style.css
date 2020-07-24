@@ -694,7 +694,7 @@ option {
     padding: 28px 15px; }
     @media (min-width: 1200px) {
       .nav__container {
-        width: 1170px; } }
+        width: 1200px; } }
   .nav__logo {
     float: left;
     margin-right: 3.02%; }
@@ -817,7 +817,7 @@ option {
     padding: 38px 15px; }
     @media (min-width: 1200px) {
       .footer__container {
-        width: 1170px; } }
+        width: 1200px; } }
   .footer span {
     text-align: center;
     display: block; }
@@ -846,7 +846,7 @@ option {
     width: 100%; }
     @media (min-width: 1200px) {
       .contact__container {
-        width: 1170px; } }
+        width: 1200px; } }
   .contact a {
     color: #506a85; }
   .contact li {
@@ -877,11 +877,10 @@ option {
       padding-bottom: 0px;
       height: 364px; } }
   .summary__container {
-    width: calc(100% - 30px);
-    padding: 0 15px; }
+    width: 100%; }
     @media (min-width: 1200px) {
       .summary__container {
-        width: 1170px; } }
+        width: 1200px; } }
   .summary h3 {
     color: white;
     margin-top: 70px;

@@ -8,10 +8,9 @@
   
 
   @include e(container) {
-    width: calc(100% - 30px);
-    padding: 0 15px;
+    width: 100%;
     @include mq(xl){
-      width: 1170px;
+      width: 1200px;
     }
   }
 
