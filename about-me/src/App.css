@@ -1,0 +1,71 @@
+.App {
+  top: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  color: white;
+  position: absolute;
+  text-align: center;
+  background-color: #1d1d1d;
+}
+
+.userName{
+  margin-top: 16%;
+  font-size: 4.35em;
+  font-weight: 900;
+  line-height: 1em;
+}
+
+.userInterests{
+  display: block;
+  margin-top: 3em;
+  line-height: 1em;
+  margin-right: 40px;
+  list-style-type: none;
+}
+
+.userSocials{
+  line-height: 1em;
+  list-style-type: none;
+  margin-top: 3em;
+  display: block;
+  margin-right: 40px;
+}
+
+.userInterest{
+  font-size: 1.3em;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.userInterest:hover{
+  text-decoration: underline;
+}
+
+.userInterest:last-child{
+  margin-right: 0px;
+}
+
+.userSocial{
+  width: 2em;
+  height: 1.5em;
+  font-size: 2em;
+  margin-right: 50px;
+  border-radius: 50%;
+  padding-top: 0.5em;
+  display: inline-block;
+  border: solid 1px white;
+}
+.userSocial:hover{
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: 0.4s;
+}
+
+.userSocial a{
+  color: white;
+}
+
+.userSocial:last-child{
+  margin-right: 0px;
+}
