@@ -1,0 +1,59 @@
+
+.list__content{
+  background-color: white;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.task__text{
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  font-family: sans-serif;
+}
+.task__options{
+  margin-top: 10px;
+  padding-top: 5px;
+  border-top: 1px solid #aeb2b8;
+}
+
+.update_task{
+  color: #aeb2b8;
+  margin-right: 8px;
+  float: left;
+}
+.update_task:hover{
+  cursor: pointer;
+  color: #667389;
+}
+
+.delete_task{
+  color: #aeb2b8;
+  float: left;
+}
+.delete_task:hover{
+  cursor: pointer;
+  color: #667389;
+}
+
+.status{
+  float: right;
+  width:65px;
+  height:25px;
+  color: white;
+  background-color: #455778;
+  border: none;
+  border-radius: 4px;
+  margin-top: 2px;
+  appearance: none; 
+  text-align: center;
+}
+
+.status:hover{
+  cursor: pointer;
+  background-color: #6f8bbb;
+}
+.status option:first-child{
+  display:none;
+}
