@@ -26,3 +26,6 @@
 .close__list:hover{
   cursor: pointer;
 }
+h3{
+  padding-bottom: 20px;
+}
