@@ -1,0 +1,14 @@
+.comment__container{
+  padding-left: 20px;
+  border-left: 4px solid #eaeaea;
+}
+.comment__container:hover{
+  border-left: 4px solid #FF6600;
+  transition: 0.2s;
+}
+.comment__text{
+  padding: 8px 20px;
+  margin-bottom: 10px;
+  background-color: #eaeaea;
+  border-radius: 8px;
+}

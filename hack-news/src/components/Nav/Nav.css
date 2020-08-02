@@ -1,0 +1,14 @@
+.Nav__wrapper{
+  background-color:#FF6600;
+}
+
+.Nav__container{
+  color: white;
+  max-width: 1170px;
+  padding: 0 15px;
+}
+
+h1{
+  padding:5px 0;
+  font-family: 'Russo One', sans-serif;
+}

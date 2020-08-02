@@ -1,0 +1,27 @@
+.Post--container{
+  margin: 0 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid #b6b6b6;
+}
+
+.Post--container:last-child{
+  border-bottom: none;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+}
+a:hover{
+  color: #FF6600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.comment__button{
+  margin-top: 5px;
+  font-size: 12px;
+}
+.comment__button:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}

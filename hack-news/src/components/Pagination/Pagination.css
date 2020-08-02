@@ -1,0 +1,29 @@
+.pagination__container{
+  max-width: 1170px;
+  text-align: center;
+  background-color: #FF6600;
+  color: white;
+  margin-top: 50px;
+}
+.change-page{
+  font-size: 35px;
+  display: inline-block;
+}
+
+.page-no{
+  font-size: 25px;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  border: 1px solid white;
+  padding-bottom: 2px;
+  margin: 0 10px;
+}
+
+.change-page:hover{
+  cursor: pointer;
+}
+h2{
+  color: #FF6600;
+  margin-bottom: 15px;
+}
