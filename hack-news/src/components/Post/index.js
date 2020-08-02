@@ -43,7 +43,7 @@ class  Post extends Component{
       return(
         <div className='Post--container'>
           <a href = {this.state.link}>{this.state.title}</a>
-          <div className = 'comment__button' onClick = {(e) => {this.props.toggleComment('true', this.state.commentsIds, this.state.title, this.state.link)}}>Comment</div>
+          <div className = 'comment__button' onClick = {(e) => {this.props.toggleComment('true', this.state.commentsIds, this.state.title, this.state.link)}}>Comments</div>
         </div>
       )
     }
