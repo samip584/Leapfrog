@@ -1,0 +1,32 @@
+.repo{
+  padding:20px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+.repo:last-child{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.Repositories__container{
+  max-width: 500px;
+}
+.repo-title{
+  font-style: 'Liberation Mono';
+  text-decoration: none;
+  font-size: 20px;
+  color: #0366d6;
+  font-weight: 550;
+}
+.repo-title:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+.repo-description{
+  font-size: 14px;
+}
+.repo-language{
+  font-size: 12px;
+  margin-right: 20px;
+}
+.repo-last-updated{
+  font-size: 12px;
+}

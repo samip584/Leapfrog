@@ -1,0 +1,23 @@
+.AboutMe-container{
+  max-width: 280px;
+} 
+.profile-pic{
+  border-radius: 50%;
+  max-width: 280px;
+}
+.User-name{
+  margin-top: 20px;
+  font-weight: 550;
+  font-size: 26px;
+}
+.User-login{
+  font-size: 24px;
+  color: #6f6a66;
+}
+.User-info{
+  color: #6f6a66;
+}
+.User-info-num{
+  color: black;
+  font-weight: 500;
+}
