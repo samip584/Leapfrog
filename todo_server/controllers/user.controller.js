@@ -20,7 +20,7 @@ router.get('/allusers', function(req, res, next){
   })
 })
 
-router.put('/update', function(req, res, next){
+router.put('/', function(req, res, next){
   db.userDb.updateUser(req.body.id, req.body.name, req.body.password)
   .then((result) => {
     res.json({
@@ -32,7 +32,7 @@ router.put('/update', function(req, res, next){
   })
 })
 
-router.delete('/delete', function(req, res, next){
+router.delete('/', function(req, res, next){
   db.taskDb.deleteTaskOfUser(req.user.id)
   .then((msg) =>{
     console.log(msg)
