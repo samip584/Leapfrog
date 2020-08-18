@@ -1,15 +1,14 @@
 const mysql = require('mysql');
-const { port } = require('../configs');
 
 const userService = require('./userServices')
 const taskService = require('./taskServices')
 
 let db = mysql.createConnection({ 
-  password:'dbPassword',
-  user:'dbUser',
-  host: 'localhost',
-  database: 'usersDB',
-  port:3306
+  password: process.env.dbPassword,
+  user: process.env.dbUser,
+  host: process.env.host,
+  database: process.env.DB,
+  port: process.env.dbPort
 });
 
 db.connect(function(err){

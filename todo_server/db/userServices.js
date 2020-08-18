@@ -18,10 +18,10 @@ class userServices{
     })
   }
   
-  addUser(name, password, salt){
+  addUser(name, password, salt, email){
     let db = this.db;
     return new Promise(function(res, rej){
-      db.query(`INSERT INTO users (name, password, salt) VALUES ('${name}', '${password}', '${salt}')`, function(err, results){
+      db.query(`INSERT INTO users (name, password, salt, email) VALUES ('${name}', '${password}', '${salt}', '${email}')`, function(err, results){
         if(err){
           rej(err);
         }else{

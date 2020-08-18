@@ -3,8 +3,7 @@ const express = require('express');
 const mysql = require('mysql');
 
 const app = express();
-
-const config = require('./configs');
+require('dotenv').config({ path: '.env.development' });
 
 // load route
 const apiRoute = require('./api.routes')
@@ -33,7 +32,7 @@ app.use(function(err, req, res, next){
   })
 })
 
-app.listen(8000, function(){
-  console.log('\nserver listening at port ' + config.port)
+app.listen(process.env.port, function(){
+  console.log('\nserver listening at port ' + process.env.port)
   console.log('press CTRL +C to exit\n')
 })

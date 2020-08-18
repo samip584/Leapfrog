@@ -10,3 +10,4 @@ router.use('/auth', authRoute)
 router.use('/user',authenticate, userRoute);
 router.use('/task',authenticate, authorize, taskRoute)
 module.exports = router;
+
